@@ -1,0 +1,2005 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://jenkins.tei-c.org/job/TEIP5/lastSuccessfulBuild/artifact/P5/release/xml/tei/odd/p5.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>An Introduction to TEI Vanilla</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Customization proposal, intended to be eventually distributed by TEI</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>This document was derived from the tutorials for TEI Lite and TEI Simple Print, with
+          substantial additions and modifications carried out within the TEI Vanilla project.</p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <!--      Not the most clear description of the private prefixes, I'm also not sure we do want it -->
+      <p>The following definitions provide support for the style of rendition URI recommended by the
+        Vanilla documentation. For them to be effective in a given document, it will be necessary to
+        include in that document a prefix definition which specifies the location of the Vanilla
+        documentation (i.e. the present document) in its <att>replacementPattern</att> attribute. A
+        suggested URI is given below.</p>
+      <listPrefixDef>
+        <prefixDef ident="vanilla" matchPattern="[a-z]+"
+          replacementPattern="http://www.tei-c.org/Vanilla/tei_vanilla.odd/#$1"/>
+      </listPrefixDef>
+      <tagsDecl>
+        <!--        Some of the renditions may need to be pruned -->
+        <rendition xml:id="allcaps">text-transform: uppercase;</rendition>
+        <rendition xml:id="blackletter">font-family: fantasy;</rendition>
+        <rendition xml:id="bold">font-weight: bold;</rendition>
+        <rendition xml:id="bottombraced">padding-bottom: 2pt; border-bottom: dashed gray
+          2pt;</rendition>
+        <rendition xml:id="block">display:block;</rendition>
+        <rendition xml:id="boxed">padding: 2pt; border: solid black 1pt;</rendition>
+        <rendition xml:id="centre">text-align: center;</rendition>
+        <rendition xml:id="cursive">font-family: cursive;</rendition>
+        <rendition xml:id="doublestrikethrough">text-decoration: line-through; color:
+          red;</rendition>
+        <rendition xml:id="doubleunderline">text-decoration: underline; color: red;</rendition>
+        <rendition xml:id="dropcap">font-size : 6em; font-family: cursive; font-weight : bold;
+          vertical-align: top; height: 1em; line-height: 1em; float : left; width : 1em; color :
+          #c00; margin: 0em; padding: 0px;</rendition>
+        <rendition xml:id="float">float:right; display: block; font-size: smaller; clear: right;
+          padding: 4pt; width: 15%; </rendition>
+        <rendition xml:id="hyphen"/>
+        <rendition xml:id="inline">display:inline;</rendition>
+        <rendition xml:id="italic">font-style: italic;</rendition>
+        <rendition xml:id="justify">text-align: justify;</rendition>
+        <rendition xml:id="larger">font-size: larger;</rendition>
+        <rendition xml:id="left">text-align: left;</rendition>
+        <rendition xml:id="leftbraced">padding-left: 2pt; border-left: dotted gray 2pt; </rendition>
+        <rendition xml:id="letterspace">letter-spacing: 0.5em;</rendition>
+        <rendition xml:id="literal">font-family:monospace; white-space:pre;</rendition>
+        <rendition xml:id="normalstyle">font-style:roman;</rendition>
+        <rendition xml:id="normalweight">font-weight:normal;</rendition>
+        <rendition xml:id="right">text-align: right;</rendition>
+        <rendition xml:id="rightbraced">padding-right: 2pt; border-right: dotted gray 2pt; </rendition>
+        <rendition xml:id="rotateleft">-webkit-transform: rotate(90deg); transform:
+          rotate(90deg);</rendition>
+        <rendition xml:id="rotateright">-webkit-transform: rotate(-90deg); transform:
+          rotate(-90deg);</rendition>
+        <rendition xml:id="rules">border: 1px solid black; padding:
+          2px;border-collapse:collapse;border-spacing:0;</rendition>
+        <rendition xml:id="smallcaps">font-variant: small-caps;</rendition>
+        <rendition xml:id="smaller">font-size: smaller;</rendition>
+        <rendition xml:id="strikethrough">text-decoration: line-through;</rendition>
+        <rendition xml:id="subscript">vertical-align: bottom; font-size: smaller;</rendition>
+        <rendition xml:id="superscript">vertical-align: super; font-size: smaller;</rendition>
+        <rendition xml:id="topbraced">padding-top: 2pt; border-top: dotted gray 2pt; </rendition>
+        <rendition xml:id="typewriter">font-family:monospace;</rendition>
+        <rendition xml:id="underline">text-decoration: underline;</rendition>
+        <rendition xml:id="wavyunderline">text-decoration: underline; text-decoration-style:
+          wavy;</rendition>
+      </tagsDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change when="2020-10-07" who="mturska">Initial version</change>
+
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <front>
+      <titlePage>
+        <docTitle>
+          <titlePart type="main">An Introduction to TEI Vanilla</titlePart>
+        </docTitle>
+        <docAuthor>Magdalena Turska</docAuthor>
+        <docAuthor>Martin Mueller</docAuthor>
+
+        <docDate>October 2020</docDate>
+      </titlePage>
+      <div>
+        <head>Preface</head>
+        <p>This document is the formal specification for TEI Vanilla, an entry-level customization
+          of the Text Encoding Initiative (TEI) Guidelines, intended to be generally useful to a
+          large variety of encoders attempting to cope with the standardized representation of a
+          variety of documents in digital form.</p>
+        <p>Like every other TEI customization, TEI Vanilla was designed for use with a particular
+          user community in mind. <list>
+            <item>Teams and individual researchers starting their TEI projects, perhaps with little
+              or no previous experience with the TEI vocabulary and data modelling. </item>
+
+            <item>Projects intended to encode a large volume of material. Vanilla is specifically
+              intended to help libraries and archives wishing to simultaneously host collections of
+              diverse sources with provisions extending far beyond basic digital facsimiles </item>
+          </list> If you are not belonging to the groups mentioned here, Vanilla may still be a good
+          point of departure, and may be very useful as a basis for the creation of your own TEI
+          customisation.
+          <!--We don't however discuss the creation of a TEI customization in this document: the TEI
+        website provides a number of links to tutorial material and tools which may assist in this
+        process. MT: I think we should point to a chapter which, even briefly, does discuss the process of ODD customization. -->
+        </p>
+
+        <!--Some of the following could be reused.-->
+
+        <!-- 
+          
+          <p>The present document is intended to be generally comprehensible and accessible, but does
+        assume some knowledge of XML (the encoding language used by the TEI), and of the way it is
+        used by the TEI. Further information on both these topics are available from many places,
+        not least the TEI's own web site at <ptr target="http://www.tei-c.org"/>.</p>
+      <p>The TEI simplePrint schema was first elaborated as a part of the TEI Simple project funded by the 
+        <ref target="https://mellon.org/">Andrew W. Mellon Foundation</ref> (2012-2014). The project sought 
+        to define a new <soCalled>highly-constrained and prescriptive subset</soCalled> of the Text Encoding 
+        Initiative (TEI) Guidelines suited to the representation of early modern print materials, a 
+        formally-defined set of processing rules which permit modern web applications to easily present 
+        and analyze the encoded texts, mapping to other ontologies, and processes to describe the encoding 
+        status and richness of a TEI digital text. Its choice of elements reflected the practices followed 
+        in the encoding of large-scale literary archives, notably those produced by the Text Creation 
+        Partnership. Practice of other comparable archives such as the German Text Archive was also taken 
+        into account.</p>
+      <p>The most distinctive feature of TEI simplePrint is its use of the TEI Processing Model, which
+        provides explicit and recommended options for the display or processing of every textual
+        element. Programmers developing systems to handle texts encoded with TEI simplePrint do not have
+        to look beyond this when building stylesheets or other components. This greatly reduces the
+        complexity of developing applications that will work reliably and consistently for many
+        users and across large corpora of documents.</p>
+      <p>The TEI simplePrint schema and the TEI Processing Model were first defined by a working group
+        led by Martin Mueller (Northwestern University) and Sebastian Rahtz (Oxford University).
+        Major contributions to the project were made by Magdalena Turska (Oxford University), James
+        Cummings (Oxford University), and Brian Pytlik Zillig. The changes to the TEI scheme needed
+        to support the TEI Processing Model were reviewed and approved by the TEI Technical Council
+        for inclusion in release 3.0.0 of TEI P5 in February 2016. The present document was
+        extensively revised and extended by Lou Burnard in July 2016 for submission to the TEI
+        Technical Council. </p>-->
+      </div>
+    </front>
+
+    <body>
+
+      <!--      Here goes the main content of the Vanilla Guidelines -->
+      <div xml:id="Introduction">
+        <head>Introduction</head>
+        <p>We begin with a ....</p>
+
+      </div>
+
+      <div>
+        <head>The TEI Vanilla schema</head>
+        <p>Like other TEI customizations, TEI Vanilla is defined by reference to the TEI Guidelines.
+          The following reference documentation provides formal specifications for each element,
+          model class, attribute class, macro and datatype it uses. These concepts are further
+          explained in the TEI Guidelines. </p>
+        <p>Specifications are provided here for each component which has been modified for inclusion
+          in TEI Vanilla. Almost every textual element has been modified, if only to include a
+          processing model component. Note that the cross references included in these
+          specifications are to the section of the full TEI Guidelines where the subject is treated,
+          and not to sections of the present document.</p>
+        <schemaSpec ident="tei_Vanilla" start="TEI">
+          <specGrpRef target="#base"/>
+          <specGrpRef target="#header"/>
+          <specGrpRef target="#attclasses"/>
+          <specGrpRef target="#modelclasses"/>
+          <specGrpRef target="#vanillaelements"/>
+          <specGrpRef target="#vanillaelementspm"/>
+          <specGrpRef target="#vanillachanges"/>
+        </schemaSpec>
+        <div>
+          <head>Summary of changes</head>
+          <p>The TEI Vanilla schema uses the TEI infrastructure and gaiji modules unchanged. </p>
+          <specGrp xml:id="base">
+            <moduleRef key="tei"/>
+            <moduleRef key="gaiji" include="g charDecl char glyph charName glyphName mapping"/>
+          </specGrp>
+          <p>A subset of 45 elements is selected from the TEI header module. In addition, elements
+              <gi>particDesc</gi> and <gi>settingDesc</gi> are provided from the corpus module. The
+            class membership of <gi>particDesc</gi> is changed to ensure that it can only appear
+            inside <gi>profileDesc</gi>. Secondly, a Schematron rule is added to the <gi>text</gi>
+            element to ensure that elements <gi>term</gi> and <gi>biblFull</gi> can appear only in
+            the header element, even though the schema permits them additionally in text.</p>
+          <specGrp xml:id="header">
+            <moduleRef key="header"
+              include="abstract
+              availability
+              biblFull
+              catDesc
+              catRef
+              category
+              change
+              classCode
+              classDecl
+              creation
+              distributor
+              edition
+              editionStmt
+              editorialDecl
+              encodingDesc
+              extent
+              fileDesc
+              idno
+              keywords
+              langUsage
+              language
+              licence
+              listChange
+              listPrefixDef
+              namespace
+              notesStmt
+              prefixDef
+              profileDesc
+              projectDesc
+              publicationStmt
+              refsDecl
+              rendition
+              revisionDesc
+              samplingDecl
+              seriesStmt
+              sourceDesc
+               tagUsage
+              tagsDecl
+              taxonomy
+              teiHeader
+              textClass
+              titleStmt
+              xenoData"/>
+            <moduleRef key="corpus" include="particDesc settingDesc"/>
+          </specGrp>
+
+          <p>Some attributes and attribute classes are removed. The range of values available for
+            several attributes is constrained. </p>
+          <specGrp xml:id="attclasses">
+
+            <!-- add attribute classes needed from other modules -->
+
+            <classRef key="att.global.analytic"/>
+            <classRef key="att.global.facs"/>
+            <classRef key="att.milestoneUnit"/>
+            <classRef key="att.global.linking"/>
+            <classRef key="att.coordinated"/>
+            <classRef key="att.tableDecoration"/>
+
+            <classRef key="att.metrical" include="rhyme"/>
+            <classRef key="att.divLike" exclude="org sample"/>
+
+            <classRef key="att.linguistic" include="lemma lemmaRef"/>
+
+            <!-- delete unused attribute classes -->
+            <classSpec type="atts" ident="att.datcat" mode="delete"/>
+            <classSpec type="atts" ident="att.declarable" mode="delete"/>
+            <classSpec type="atts" ident="att.declaring" mode="delete"/>
+            <classSpec type="atts" ident="att.ranging" mode="delete"/>
+
+            <!-- delete some attributes from global linking. -->
+            <classSpec type="atts" ident="att.global.linking" mode="change">
+              <attList>
+                <attDef ident="sameAs" mode="delete"/>
+                <attDef ident="synch" mode="delete"/>
+                <attDef ident="copyOf" mode="delete"/>
+                <attDef ident="exclude" mode="delete"/>
+                <attDef ident="select" mode="delete"/>
+              </attList>
+            </classSpec>
+            <!-- simplify the att.canonical class by removing @key -->
+            <classSpec type="atts" ident="att.canonical" mode="change">
+              <attList>
+                <attDef ident="key" mode="delete"/>
+              </attList>
+            </classSpec>
+            <!-- simplify the att.editLike class -->
+            <classSpec type="atts" ident="att.editLike" mode="change">
+              <attList>
+                <attDef ident="evidence" mode="delete"/>
+                <attDef ident="instant" mode="delete"/>
+              </attList>
+            </classSpec>
+            <!--add constraints to ensure that the target of a local pointer
+              must have a corresponding identifier -->
+            <classSpec type="atts" ident="att.pointing" mode="change">
+              <attList>
+                <attDef ident="target" mode="change">
+                  <constraintSpec ident="validtarget" scheme="schematron">
+                    <constraint>
+                      <rule xmlns="http://purl.oclc.org/dsdl/schematron" context="tei:*[@target]">
+                        <let name="results"
+                          value="for $t in  tokenize(normalize-space(@target),'\s+') return starts-with($t,'#') and not(id(substring($t,2)))"/>
+                        <report test="some $x in $results  satisfies $x"> Error: Every local pointer
+                          in "<value-of select="@target"/>" must point to an ID in this document
+                            (<value-of select="$results"/>)</report>
+                      </rule>
+                    </constraint>
+                  </constraintSpec>
+                </attDef>
+              </attList>
+            </classSpec>
+            <classSpec type="atts" ident="att.global.rendition" mode="change">
+              <constraintSpec ident="renditionpointer" scheme="schematron">
+                <constraint>
+                  <rule xmlns="http://purl.oclc.org/dsdl/schematron" context="tei:*[@rendition]">
+                    <let name="results"
+                      value="for $val in tokenize(normalize-space(@rendition),'\s+') return starts-with($val,'vanilla:')        or        (starts-with($val,'#')        and        //tei:rendition[@xml:id=substring($val,2)])"/>
+                    <assert test="every $x in $results satisfies $x"> Error: Each of the rendition
+                      values in "<value-of select="@rendition"/>" must point to a local ID or to a
+                      token in the Vanilla scheme (<value-of select="$results"/>)</assert>
+                  </rule>
+                </constraint>
+              </constraintSpec>
+              <constraintSpec ident="corresppointer" scheme="schematron">
+                <constraint>
+                  <rule xmlns="http://purl.oclc.org/dsdl/schematron" context="tei:*[@corresp]">
+                    <let name="results"
+                      value="for $t in tokenize(normalize-space(@corresp),'\s+') return starts-with($t,'#') and not(id(substring($t,2)))"/>
+                    <report test="some $x in $results  satisfies $x"> Error: Every local pointer in
+                        "<value-of select="@corresp"/>" must point to an ID in this document
+                        (<value-of select="$results"/>)</report>
+                  </rule>
+                </constraint>
+              </constraintSpec>
+              <!-- remove unused attributes @rend and @style; constrain values for @rendition -->
+              <attList>
+                <attDef ident="rend" mode="delete"/>
+                <attDef ident="style" mode="delete"/>
+                <attDef ident="rendition" mode="change">
+                  <valList mode="add" type="semi">
+                    <valItem ident="simple:allcaps">
+                      <desc versionDate="2016-08-15" xml:lang="en">all capitals</desc>
+                    </valItem>
+                    <valItem ident="simple:blackletter">
+                      <desc versionDate="2016-08-15" xml:lang="en">black letter or gothic
+                        typeface</desc>
+                    </valItem>
+                    <valItem ident="simple:bold">
+                      <desc versionDate="2016-08-15" xml:lang="en">bold typeface</desc>
+                    </valItem>
+                    <valItem ident="simple:bottombraced">
+                      <desc versionDate="2016-08-15" xml:lang="en">marked with a brace under the
+                        bottom of the text</desc>
+                    </valItem>
+                    <valItem ident="simple:boxed">
+                      <desc versionDate="2016-08-15" xml:lang="en">border around the text</desc>
+                    </valItem>
+                    <valItem ident="simple:centre">
+                      <desc versionDate="2016-08-15" xml:lang="en">centred</desc>
+                    </valItem>
+                    <valItem ident="simple:cursive">
+                      <desc versionDate="2016-08-15" xml:lang="en">cursive typeface</desc>
+                    </valItem>
+                    <valItem ident="simple:display">
+                      <desc versionDate="2016-08-15" xml:lang="en">block display</desc>
+                    </valItem>
+                    <valItem ident="simple:doublestrikethrough">
+                      <desc versionDate="2016-08-15" xml:lang="en">strikethrough with double
+                        line</desc>
+                    </valItem>
+                    <valItem ident="simple:doubleunderline">
+                      <desc versionDate="2016-08-15" xml:lang="en">underlined with double
+                        line</desc>
+                    </valItem>
+                    <valItem ident="simple:dropcap">
+                      <desc versionDate="2016-08-15" xml:lang="en">initial letter larger or
+                        decorated</desc>
+                    </valItem>
+                    <valItem ident="simple:float">
+                      <desc versionDate="2016-08-15" xml:lang="en">floated out of main flow</desc>
+                    </valItem>
+                    <valItem ident="simple:hyphen">
+                      <desc versionDate="2016-08-15" xml:lang="en">with a hyphen here (eg in line
+                        break)</desc>
+                    </valItem>
+                    <valItem ident="simple:inline">
+                      <desc versionDate="2016-08-15" xml:lang="en">inline rendering</desc>
+                    </valItem>
+                    <valItem ident="simple:justify">
+                      <desc versionDate="2016-08-15" xml:lang="en">justified text</desc>
+                    </valItem>
+                    <valItem ident="simple:italic">
+                      <desc versionDate="2016-08-15" xml:lang="en">italic typeface</desc>
+                    </valItem>
+                    <valItem ident="simple:larger">
+                      <desc versionDate="2016-08-15" xml:lang="en">larger type</desc>
+                    </valItem>
+                    <valItem ident="simple:left">
+                      <desc versionDate="2016-08-15" xml:lang="en">aligned to the left or
+                        left-justified</desc>
+                    </valItem>
+                    <valItem ident="simple:leftbraced">
+                      <desc versionDate="2016-08-15" xml:lang="en">marked with a brace on the left
+                        side of the text</desc>
+                    </valItem>
+                    <valItem ident="simple:letterspace">
+                      <desc versionDate="2016-08-15" xml:lang="en">larger-than-normal spacing
+                        between letters, usually for emphasis</desc>
+                    </valItem>
+                    <valItem ident="simple:literal">
+                      <desc versionDate="2016-08-15" xml:lang="en">fixed-width typeface, spacing
+                        preserved</desc>
+                    </valItem>
+                    <valItem ident="simple:normalstyle">
+                      <desc versionDate="2016-08-15" xml:lang="en">upright shape and default weight
+                        of typeface</desc>
+                    </valItem>
+                    <valItem ident="simple:normalweight">
+                      <desc versionDate="2016-08-15" xml:lang="en">normal typeface weight</desc>
+                    </valItem>
+                    <valItem ident="simple:right">
+                      <desc versionDate="2016-08-15" xml:lang="en">aligned to the right or
+                        right-justified</desc>
+                    </valItem>
+                    <valItem ident="simple:rightbraced">
+                      <desc versionDate="2016-08-15" xml:lang="en">marked with a brace to the right
+                        of the text</desc>
+                    </valItem>
+                    <valItem ident="simple:rotateleft">
+                      <desc versionDate="2016-08-15" xml:lang="en">rotated to the left</desc>
+                    </valItem>
+                    <valItem ident="simple:rotateright">
+                      <desc versionDate="2016-08-15" xml:lang="en">rotated to the right</desc>
+                    </valItem>
+                    <valItem ident="simple:smallcaps">
+                      <desc versionDate="2016-08-15" xml:lang="en">small caps</desc>
+                    </valItem>
+                    <valItem ident="simple:smaller">
+                      <desc versionDate="2016-08-15" xml:lang="en">smaller type</desc>
+                    </valItem>
+                    <valItem ident="simple:strikethrough">
+                      <desc versionDate="2016-08-15" xml:lang="en">strike through</desc>
+                    </valItem>
+                    <valItem ident="simple:subscript">
+                      <desc versionDate="2016-08-15" xml:lang="en">subscript</desc>
+                    </valItem>
+                    <valItem ident="simple:superscript">
+                      <desc versionDate="2016-08-15" xml:lang="en">superscript</desc>
+                    </valItem>
+                    <valItem ident="simple:topbraced">
+                      <desc versionDate="2016-08-15" xml:lang="en">marked with a brace above the
+                        text</desc>
+                    </valItem>
+                    <valItem ident="simple:typewriter">
+                      <desc versionDate="2016-08-15" xml:lang="en">fixed-width typeface, like
+                        typewriter</desc>
+                    </valItem>
+                    <valItem ident="simple:underline">
+                      <desc versionDate="2016-08-15" xml:lang="en">underlined with single
+                        line</desc>
+                    </valItem>
+                    <valItem ident="simple:wavyunderline">
+                      <desc versionDate="2016-08-15" xml:lang="en">underlined with wavy line</desc>
+                    </valItem>
+                  </valList>
+                </attDef>
+              </attList>
+            </classSpec>
+            <classSpec type="atts" mode="change" ident="att.placement">
+              <attList>
+                <attDef ident="place" mode="change">
+                  <valList type="closed" mode="replace">
+                    <valItem ident="above">
+                      <desc versionDate="2016-08-15" xml:lang="en">above the line</desc>
+                    </valItem>
+                    <valItem ident="below">
+                      <desc versionDate="2016-08-15" xml:lang="en">below the line</desc>
+                    </valItem>
+                    <valItem ident="top">
+                      <desc versionDate="2016-08-15" xml:lang="en">at the top of the page</desc>
+                    </valItem>
+                    <valItem ident="top-right">
+                      <desc versionDate="2016-08-15" xml:lang="en">at the top right of the
+                        page</desc>
+                    </valItem>
+                    <valItem ident="top-left">
+                      <desc versionDate="2016-08-15" xml:lang="en">at the top left of the
+                        page</desc>
+                    </valItem>
+                    <valItem ident="top-centre">
+                      <desc versionDate="2016-08-15" xml:lang="en">at the top center of the
+                        page</desc>
+                    </valItem>
+                    <valItem ident="bottom-right">
+                      <desc versionDate="2016-08-15" xml:lang="en">at the bottom right of the
+                        page</desc>
+                    </valItem>
+                    <valItem ident="bottom-left">
+                      <desc versionDate="2016-08-15" xml:lang="en">at the bottom left of the
+                        page</desc>
+                    </valItem>
+                    <valItem ident="bottom-centre">
+                      <desc versionDate="2016-08-15" xml:lang="en">at the bottom centre of the
+                        page</desc>
+                    </valItem>
+                    <valItem ident="bottom">
+                      <desc versionDate="2016-08-15" xml:lang="en">at the foot of the page</desc>
+                    </valItem>
+                    <valItem ident="tablebottom">
+                      <desc versionDate="2016-08-15" xml:lang="en">underneath a table</desc>
+                    </valItem>
+                    <valItem ident="margin-right">
+                      <desc versionDate="2016-08-15" xml:lang="en">in the right-hand margin</desc>
+                    </valItem>
+                    <valItem ident="margin">
+                      <desc versionDate="2016-08-15" xml:lang="en">in the outer margin</desc>
+                    </valItem>
+                    <valItem ident="margin-inner">
+                      <desc versionDate="2016-08-15" xml:lang="en">in the inner margin</desc>
+                    </valItem>
+                    <valItem ident="margin-left">
+                      <desc versionDate="2016-08-15" xml:lang="en">in the left-hand margin</desc>
+                    </valItem>
+                    <valItem ident="opposite">
+                      <desc versionDate="2016-08-15" xml:lang="en">on the opposite, i.e. facing,
+                        page.</desc>
+                    </valItem>
+                    <valItem ident="overleaf">
+                      <desc versionDate="2016-08-15" xml:lang="en">on the other side of the
+                        leaf.</desc>
+                    </valItem>
+                    <valItem ident="overstrike">
+                      <desc versionDate="2016-08-15" xml:lang="en">superimposed on top of the
+                        current context</desc>
+                    </valItem>
+                    <valItem ident="end">
+                      <desc versionDate="2016-08-15" xml:lang="en">at the end of the volume.</desc>
+                    </valItem>
+                    <valItem ident="divend">
+                      <desc versionDate="2016-08-15" xml:lang="en">at the end the current
+                        division.</desc>
+                    </valItem>
+                    <valItem ident="parend">
+                      <desc versionDate="2016-08-15" xml:lang="en">at the end the current
+                        paragraph.</desc>
+                    </valItem>
+                    <valItem ident="inline">
+                      <desc versionDate="2016-08-15" xml:lang="en">within the body of the
+                        text.</desc>
+                    </valItem>
+                    <valItem ident="inspace">
+                      <desc versionDate="2016-08-15" xml:lang="en">in a predefined space, for
+                        example left by an earlier scribe.</desc>
+                    </valItem>
+                    <valItem ident="block">
+                      <desc versionDate="2016-08-15" xml:lang="en">formatted as an indented
+                        paragraph</desc>
+                    </valItem>
+                  </valList>
+                </attDef>
+              </attList>
+            </classSpec>
+            <classSpec type="atts" ident="att.dimensions" mode="change">
+              <attList>
+                <attDef ident="unit" mode="change">
+                  <valList mode="add" type="closed">
+                    <valItem ident="chars">
+                      <desc versionDate="2016-08-15" xml:lang="en">characters</desc>
+                    </valItem>
+                    <valItem ident="lines">
+                      <desc versionDate="2016-08-15" xml:lang="en">lines</desc>
+                    </valItem>
+                    <valItem ident="pages">
+                      <desc versionDate="2016-08-15" xml:lang="en">pages</desc>
+                    </valItem>
+                    <valItem ident="words">
+                      <desc versionDate="2016-08-15" xml:lang="en">words</desc>
+                    </valItem>
+                    <valItem ident="cm">
+                      <desc versionDate="2016-08-15" xml:lang="en">centimetres</desc>
+                    </valItem>
+                    <valItem ident="mm">
+                      <desc versionDate="2016-08-15" xml:lang="en">millimetre</desc>
+                    </valItem>
+                    <valItem ident="in">
+                      <desc versionDate="2016-08-15" xml:lang="en">inches</desc>
+                    </valItem>
+                  </valList>
+                </attDef>
+                <attDef ident="precision" mode="delete"/>
+              </attList>
+            </classSpec>
+          </specGrp>
+
+          <p>The following unused model classes are removed.</p>
+          <specGrp xml:id="modelclasses">
+            <!-- why is this needed? the ODD processor should do it for you-->
+            <classSpec type="model" ident="model.certLike" mode="delete"/>
+            <classSpec type="model" ident="model.egLike" mode="delete"/>
+            <classSpec type="model" ident="model.entryPart" mode="delete"/>
+            <classSpec type="model" ident="model.glossLike" mode="delete"/>
+            <classSpec type="model" ident="model.oddDecl" mode="delete"/>
+            <classSpec type="model" ident="model.offsetLike" mode="delete"/>
+            <classSpec type="model" ident="model.pPart.msdesc" mode="delete"/>
+            <classSpec type="model" ident="model.placeNamePart" mode="delete"/>
+            <classSpec type="model" ident="model.placeStateLike" mode="delete"/>
+            <classSpec type="model" ident="model.specDescLike" mode="delete"/>
+          </specGrp>
+          <!-- 
+            These are the 113 textual elements selected for use in TEI Vanilla texts-->
+          <specGrp xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:XSL="http://www.w3.org/1999/XSL/Transform" xml:id="vanillaelements">
+            <elementRef key="ab"/>
+            <elementRef key="abbr"/>
+            <elementRef key="actor"/>
+            <elementRef key="add"/>
+            <elementRef key="address"/>
+            <elementRef key="addrLine"/>
+            <!--elementRef key="am"/-->
+            <elementRef key="anchor"/>
+            <elementRef key="argument"/>
+            <elementRef key="author"/>
+            <elementRef key="back"/>
+            <elementRef key="bibl"/>
+            <elementRef key="biblScope"/>
+            <elementRef key="body"/>
+            <elementRef key="byline"/>
+            <elementRef key="c"/>
+            <elementRef key="castGroup"/>
+            <elementRef key="castItem"/>
+            <elementRef key="castList"/>
+            <elementRef key="cb"/>
+            <elementRef key="cell"/>
+            <elementRef key="choice"/>
+            <elementRef key="cit"/>
+            <elementRef key="closer"/>
+            <elementRef key="code"/>
+            <elementRef key="corr"/>
+            <elementRef key="date"/>
+            <elementRef key="dateline"/>
+            <elementRef key="del"/>
+            <elementRef key="desc"/>
+            <elementRef key="div"/>
+            <elementRef key="docAuthor"/>
+            <elementRef key="docDate"/>
+            <elementRef key="docEdition"/>
+            <elementRef key="docImprint"/>
+            <elementRef key="docTitle"/>
+            <elementRef key="editor"/>
+            <elementRef key="email"/>
+            <elementRef key="epigraph"/>
+            <!--elementRef key="ex"/-->
+            <elementRef key="expan"/>
+            <elementRef key="facsimile"/>
+            <elementRef key="figDesc"/>
+            <elementRef key="figure"/>
+            <elementRef key="floatingText"/>
+            <elementRef key="foreign"/>
+            <elementRef key="formula"/>
+            <elementRef key="front"/>
+            <elementRef key="fw"/>
+            <elementRef key="g"/>
+            <elementRef key="gap"/>
+            <elementRef key="graphic"/>
+            <elementRef key="group"/>
+            <elementRef key="head"/>
+            <elementRef key="hi"/>
+            <elementRef key="imprimatur"/>
+            <elementRef key="item"/>
+            <elementRef key="l"/>
+            <elementRef key="label"/>
+            <elementRef key="lb"/>
+            <elementRef key="lg"/>
+            <elementRef key="list"/>
+            <elementRef key="listBibl"/>
+            <elementRef key="listPerson"/>
+            <elementRef key="listPlace"/>
+            <elementRef key="measure"/>
+            <elementRef key="milestone"/>
+            <elementRef key="name"/>
+            <elementRef key="note"/>
+            <elementRef key="num"/>
+            <elementRef key="opener"/>
+            <elementRef key="orig"/>
+            <elementRef key="p"/>
+            <elementRef key="pb"/>
+            <elementRef key="pc"/>
+            <elementRef key="person"/>
+            <elementRef key="place"/>
+            <elementRef key="postscript"/>
+            <elementRef key="publisher"/>
+            <elementRef key="pubPlace"/>
+            <elementRef key="q"/>
+            <elementRef key="quote"/>
+            <elementRef key="ref"/>
+            <elementRef key="reg"/>
+            <elementRef key="relatedItem"/>
+            <elementRef key="resp"/>
+            <elementRef key="respStmt"/>
+            <elementRef key="rhyme"/>
+            <elementRef key="role"/>
+            <elementRef key="roleDesc"/>
+            <elementRef key="row"/>
+            <elementRef key="rs"/>
+            <elementRef key="s"/>
+            <elementRef key="salute"/>
+            <elementRef key="seg"/>
+            <elementRef key="set"/>
+            <elementRef key="sic"/>
+            <elementRef key="signed"/>
+            <elementRef key="sp"/>
+            <elementRef key="speaker"/>
+            <elementRef key="stage"/>
+            <elementRef key="subst"/>
+            <elementRef key="supplied"/>
+            <elementRef key="surface"/>
+            <elementRef key="table"/>
+            <elementRef key="TEI"/>
+            <elementRef key="teiCorpus"/>
+            <elementRef key="term"/>
+            <!-- only for use within keywords -->
+            <elementRef key="text"/>
+            <elementRef key="time"/>
+            <elementRef key="title"/>
+            <elementRef key="titlePage"/>
+            <elementRef key="titlePart"/>
+            <elementRef key="trailer"/>
+            <elementRef key="unclear"/>
+            <elementRef key="w"/>
+            <elementRef key="zone"/>
+
+          </specGrp>
+          <p>The following elements are modified by the TEI Vanilla specification, mostly by the
+            addition of a processing model, but in other cases by additional constraints on the
+            attributes they may have, or the values those attributes may take. Additional examples
+            are also provided for some of them. </p>
+          <specGrp xml:id="vanillaelementspm">
+            <!-- currently missing models: body, facsimile,  surface, teiCorpus, zone -->
+            <elementSpec ident="ab" mode="change">
+              <model behaviour="paragraph"/>
+            </elementSpec>
+            <elementSpec ident="abbr" mode="change">
+              <attList>
+                <attDef ident="type" mode="change">
+                  <remarks versionDate="2016-09-29" xml:lang="en">
+                    <p/>
+                  </remarks>
+                </attDef>
+              </attList>
+              <model behaviour="inline"/>
+              <remarks versionDate="2016-09-29" xml:lang="en">
+                <p/>
+              </remarks>
+            </elementSpec>
+            <elementSpec ident="actor" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="add" mode="change">
+              <model behaviour="inline">
+                <outputRendition>color: green; text-decoration: underline;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="address" mode="change">
+              <model behaviour="block">
+                <outputRendition>margin-top: 2em; margin-left: 2em; margin-right: 2em;
+                  margin-bottom: 2em;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="addrLine" mode="change">
+              <model behaviour="block">
+                <outputRendition>white-space: nowrap;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="am" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="anchor" mode="change">
+              <model behaviour="anchor">
+                <param name="id" value="@xml:id"/>
+              </model>
+            </elementSpec>
+            <elementSpec ident="argument" mode="change">
+              <model behaviour="block">
+                <outputRendition>margin-bottom: 0.5em;</outputRendition>
+              </model>
+              <exemplum xml:lang="en" versionDate="2016-11-18">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <argument>
+                    <l>With ſighs and tears her love he doth deſire,</l>
+                    <l>Since Cupid hath his ſenſes ſet on fire;</l>
+                    <l>His torment and his pain to her he ſhews,</l>
+                    <l>With all his proteſtations and his vows:</l>
+                    <l>At laſt ſhe yields to grant him ſome relief,</l>
+                    <l>And make him joyful after all his grief.</l>
+                  </argument>
+                </egXML>
+              </exemplum>
+            </elementSpec>
+            <elementSpec ident="author" mode="change">
+              <model predicate="ancestor::teiHeader" behaviour="omit"/>
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="back" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+
+            <elementSpec ident="bibl" mode="change">
+              <constraintSpec mode="add" ident="noEmptyBibl" scheme="schematron">
+                <constraint>
+                  <assert xmlns="http://purl.oclc.org/dsdl/schematron"
+                    test="child::* or child::text()[normalize-space()]" role="ERROR"> Element
+                    "<name/>" may not be empty. </assert>
+                </constraint>
+              </constraintSpec>
+              <model predicate="parent::listBibl" behaviour="listItem"/>
+              <model behaviour="inline"/>
+              <exemplum xml:lang="en" versionDate="2016-11-18">
+                <!-- EEBO-TCP: A17717 -->
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <epigraph>
+                    <bibl>Deut. Chap. 5.</bibl>
+                    <q>11 Thou ſhalt not take the name of the Lord thy God in vaine, for the Lord
+                      will not hold him guiltleſſe which ſhall take his name in vaine.</q>
+                  </epigraph>
+                </egXML>
+              </exemplum>
+            </elementSpec>
+
+            <elementSpec ident="biblFull" mode="change">
+              <exemplum xml:lang="en" versionDate="2016-11-18">
+                <!-- EEBO-TCP: B02347 -->
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <sourceDesc>
+                    <biblFull>
+                      <titleStmt>
+                        <title>Buxom Joan of Lymas's love to a jolly sailer: or, The maiden's
+                          choice: being love for love again. To an excellent new play-house
+                          tune.</title>
+                        <author>Congreve, William, 1670-1729.</author>
+                      </titleStmt>
+                      <extent>1 sheet ([1] p.) : music. </extent>
+                      <publicationStmt>
+                        <publisher>printed for P[hilip]. Brooksby, at the Golden-ball, in
+                          Pye-corner.,</publisher>
+                        <pubPlace>London: :</pubPlace>
+                        <date>[between 1693-1695]</date>
+                      </publicationStmt>
+                      <notesStmt>
+                        <note>Attributed to William Congreve by Wing.</note>
+                        <note>Date of publication and publisher's name from Wing.</note>
+                        <note>Verse: "A soldier and a sailer ..."</note>
+                        <note>Printed in two columns.</note>
+                        <note>Reproduction of original in the British Library.</note>
+                      </notesStmt>
+                    </biblFull>
+                  </sourceDesc>
+                </egXML>
+              </exemplum>
+
+            </elementSpec>
+
+            <elementSpec ident="biblScope" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="body" mode="change">
+              <modelSequence>
+                <model behaviour="index">
+                  <param name="type" value="'toc'"/>
+                </model>
+                <model behaviour="block"/>
+              </modelSequence>
+            </elementSpec>
+            <elementSpec ident="byline" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="c" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="castGroup" mode="change">
+              <model predicate="child::*" behaviour="list">
+                <desc>Insert list. </desc>
+              </model>
+            </elementSpec>
+            <elementSpec ident="castItem" mode="change">
+              <model behaviour="listItem">
+                <desc>Insert item, rendered as described in parent list rendition. </desc>
+              </model>
+            </elementSpec>
+            <elementSpec ident="castList" mode="change">
+              <model predicate="child::*" behaviour="list" useSourceRendition="true">
+                <outputRendition>list-style: ordered;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="cb" mode="change">
+              <model behaviour="break">
+                <param name="type" value="'column'"/>
+                <param name="label" value="@n"/>
+              </model>
+            </elementSpec>
+            <elementSpec ident="cell" mode="change">
+              <attList>
+                <attDef ident="role" mode="change">
+                  <valList mode="add" type="closed">
+                    <valItem ident="data">
+                      <desc versionDate="2016-08-15" xml:lang="en">data cell</desc>
+                    </valItem>
+                    <valItem ident="label">
+                      <desc versionDate="2016-08-15" xml:lang="en">label cell</desc>
+                    </valItem>
+                    <valItem ident="sum">
+                      <desc versionDate="2016-08-15" xml:lang="en">row or column sum data</desc>
+                    </valItem>
+                    <valItem ident="total">
+                      <desc versionDate="2016-08-15" xml:lang="en">table total data</desc>
+                    </valItem>
+                  </valList>
+                </attDef>
+              </attList>
+              <model behaviour="cell">
+                <desc>Insert table cell. </desc>
+              </model>
+            </elementSpec>
+            <elementSpec ident="choice" mode="change">
+              <constraintSpec ident="choiceSize" scheme="schematron" mode="add">
+                <constraint>
+                  <assert xmlns="http://purl.oclc.org/dsdl/schematron" test="count(*) &gt; 1"
+                    role="ERROR"> Element "<name/>" must have at least two child elements.</assert>
+                </constraint>
+              </constraintSpec>
+              <constraintSpec ident="choiceContent" scheme="schematron" mode="add">
+                <constraint>
+                  <assert xmlns="http://purl.oclc.org/dsdl/schematron"
+                    test="(tei:corr or tei:sic or tei:expan or     tei:abbr or tei:reg or tei:orig) and ((tei:corr and tei:sic) or (tei:expan     and tei:abbr) or (tei:reg and tei:orig))"
+                    role="ERROR"> Element "<name/>" must have corresponding corr/sic, expand/abbr,
+                    reg/orig </assert>
+                </constraint>
+              </constraintSpec>
+              <model output="plain" predicate="sic and corr" behaviour="inline">
+                <param name="content" value="corr[1]"/>
+              </model>
+              <model output="plain" predicate="abbr and expan" behaviour="inline">
+                <param name="content" value="expan[1]"/>
+              </model>
+              <model output="plain" predicate="orig and reg" behaviour="inline">
+                <param name="content" value="reg[1]"/>
+              </model>
+              <model predicate="sic and corr" behaviour="alternate">
+                <param name="default" value="corr[1]"/>
+                <param name="alternate" value="sic[1]"/>
+              </model>
+              <model predicate="abbr and expan" behaviour="alternate">
+                <param name="default" value="expan[1]"/>
+                <param name="alternate" value="abbr[1]"/>
+              </model>
+              <model predicate="orig and reg" behaviour="alternate">
+                <param name="default" value="reg[1]"/>
+                <param name="alternate" value="orig[1]"/>
+              </model>
+            </elementSpec>
+            <elementSpec ident="cit" mode="change">
+              <model predicate="child::quote and child::bibl" behaviour="cit">
+                <desc>Insert citation </desc>
+              </model>
+            </elementSpec>
+            <elementSpec ident="closer" mode="change">
+              <model behaviour="block">
+                <outputRendition>margin-top: 1em; margin-left: 1em; margin-left:
+                  1em;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="code" mode="change">
+              <model behaviour="inline">
+                <outputRendition>font-family:monospace</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="corr" mode="change">
+              <model predicate="parent::choice and count(parent::*/*) gt 1" behaviour="inline">
+                <desc>simple inline, if in parent choice. </desc>
+              </model>
+              <model behaviour="inline">
+                <outputRendition scope="before">content: '[';</outputRendition>
+                <outputRendition scope="after">content: ']';</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="date" mode="change">
+              <model output="print" predicate="text()" behaviour="inline"/>
+              <model output="print" predicate="@when and not(text())" behaviour="inline">
+                <param name="content" value="@when"/>
+              </model>
+              <model output="web" predicate="@when" behaviour="alternate">
+                <param name="default" value="."/>
+                <param name="alternate" value="@when"/>
+              </model>
+              <model predicate="text()" behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="dateline" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="del" mode="change">
+              <model behaviour="inline">
+                <outputRendition> text-decoration: line-through;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="desc" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="div" mode="change">
+              <model predicate="@type='title_page'" behaviour="block">
+                <outputRendition>border: 1px solid black; padding: 5px;</outputRendition>
+              </model>
+              <model behaviour="section" predicate="parent::body or parent::front or parent::back"/>
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="docAuthor" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="docDate" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="docEdition" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="docImprint" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="docTitle" mode="change">
+              <model behaviour="block" useSourceRendition="true">
+                <outputRendition>font-size: larger;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="editor" mode="change">
+              <model predicate="ancestor::teiHeader" behaviour="omit"/>
+              <model behaviour="inline"/>
+            </elementSpec>
+
+            <elementSpec ident="editorialDecl" mode="change">
+              <exemplum xml:lang="en" versionDate="2016-11-18">
+                <!-- Duplicate text in EEBO TCP Files -->
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <encodingDesc>
+                    <editorialDecl>
+                      <p>EEBO-TCP is a partnership between the Universities of Michigan and Oxford
+                        and the publisher ProQuest to create accurately transcribed and encoded
+                        texts based on the image sets published by ProQuest via their Early English
+                        Books Online (EEBO) database (http://eebo.chadwyck.com). The general aim of
+                        EEBO-TCP is to encode one copy (usually the first edition) of every
+                        monographic English-language title published between 1473 and 1700 available
+                        in EEBO.</p>
+                      <p>EEBO-TCP aimed to produce large quantities of textual data within the usual
+                        project restraints of time and funding, and therefore chose to create
+                        diplomatic transcriptions (as opposed to critical editions) with
+                        light-touch, mainly structural encoding based on the Text Encoding
+                        Initiative (http://www.tei-c.org).</p>
+                      <p>The EEBO-TCP project was divided into two phases. The 25,363 texts created
+                        during Phase 1 of the project have been released into the public domain as
+                        of 1 January 2015. Anyone can now take and use these texts for their own
+                        purposes, but we respectfully request that due credit and attribution is
+                        given to their original source.</p>
+                      <p>Users should be aware of the process of creating the TCP texts, and
+                        therefore of any assumptions that can be made about the data.</p>
+                      <p>Text selection was based on the New Cambridge Bibliography of English
+                        Literature (NCBEL). If an author (or for an anonymous work, the title)
+                        appears in NCBEL, then their works are eligible for inclusion. Selection was
+                        intended to range over a wide variety of subject areas, to reflect the true
+                        nature of the print record of the period. In general, first editions of a
+                        works in English were prioritized, although there are a number of works in
+                        other languages, notably Latin and Welsh, included and sometimes a second or
+                        later edition of a work was chosen if there was a compelling reason to do
+                        so.</p>
+                      <p>Image sets were sent to external keying companies for transcription and
+                        basic encoding. Quality assurance was then carried out by editorial teams in
+                        Oxford and Michigan. 5% (or 5 pages, whichever is the greater) of each text
+                        was proofread for accuracy and those which did not meet QA standards were
+                        returned to the keyers to be redone. After proofreading, the encoding was
+                        enhanced and/or corrected and characters marked as illegible were corrected
+                        where possible up to a limit of 100 instances per text. Any remaining
+                        illegibles were encoded as &lt;gap&gt;s. Understanding these processes
+                        should make clear that, while the overall quality of TCP data is very good,
+                        some errors will remain and some readable characters will be marked as
+                        illegible. Users should bear in mind that in all likelihood such instances
+                        will never have been looked at by a TCP editor.</p>
+                      <p>The texts were encoded and linked to page images in accordance with level 4
+                        of the TEI in Libraries guidelines.</p>
+                      <p>Copies of the texts have been issued variously as SGML (TCP schema; ASCII
+                        text with mnemonic sdata character entities); displayable XML (TCP schema;
+                        characters represented either as UTF-8 Unicode or text strings within
+                        braces); or lossless XML (TEI P5, characters represented either as UTF-8
+                        Unicode or TEI g elements).</p>
+                      <p>Keying and markup guidelines are available at the <ref
+                          target="http://www.textcreationpartnership.org/docs/.">Text Creation
+                          Partnership web site</ref>.</p>
+                    </editorialDecl>
+                  </encodingDesc>
+                </egXML>
+              </exemplum>
+            </elementSpec>
+
+
+            <elementSpec ident="email" mode="change">
+              <model behaviour="inline">
+                <outputRendition>font-family:monospace</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="epigraph" mode="change">
+              <model behaviour="block"/>
+              <exemplum xml:lang="en" versionDate="2016-11-18">
+                <!-- EEBO-TCP: A17717 -->
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <epigraph>
+                    <bibl>Deut. Chap. 5.</bibl>
+                    <q>11 Thou ſhalt not take the name of the Lord thy God in vaine, for the Lord
+                      will not hold him guiltleſſe which ſhall take his name in vaine.</q>
+                  </epigraph>
+                </egXML>
+              </exemplum>
+            </elementSpec>
+            <elementSpec ident="ex" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="expan" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="figDesc" mode="change">
+              <model behaviour="inline">
+                <outputRendition scope="before">content: '[..';</outputRendition>
+                <outputRendition scope="after">content: '..]';</outputRendition>
+                <outputRendition>color: grey;font-style:italic;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="figure" mode="change">
+              <model predicate="head or @rendition='simple:display'" behaviour="block"/>
+              <model behaviour="inline">
+                <outputRendition> display: block; border-top: solid 1pt blue; border-bottom: solid
+                  1pt blue; </outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="floatingText" mode="change">
+              <model behaviour="block">
+                <outputRendition> margin: 6pt; border: solid black 1pt; </outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="foreign" mode="change">
+              <model behaviour="inline">
+                <outputRendition>font-style:italic;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="formula" mode="change">
+              <attList>
+                <attDef ident="notation" mode="change">
+                  <valList mode="add" type="semi">
+                    <valItem ident="TeX">
+                      <desc versionDate="2016-08-15" xml:lang="en">Using TeX or LaTeX
+                        notation</desc>
+                    </valItem>
+                  </valList>
+                </attDef>
+              </attList>
+              <model predicate="@rendition='simple:display'" behaviour="block"/>
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="front" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="fw" mode="change">
+              <model predicate="ancestor::p or ancestor::ab" behaviour="inline"/>
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="g" mode="change">
+              <model predicate="not(text())" behaviour="glyph">
+                <param name="uri" value="@ref"/>
+              </model>
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="gap" mode="change">
+              <content>
+                <elementRef key="desc" minOccurs="0" maxOccurs="1"/>
+              </content>
+              <attList>
+                <attDef ident="hand" mode="delete"/>
+              </attList>
+              <model predicate="desc" behaviour="inline">
+                <outputRendition>color: grey;</outputRendition>
+              </model>
+              <model predicate="@extent" behaviour="inline">
+                <param name="content" value="@extent"/>
+                <outputRendition scope="before">content: '[..';</outputRendition>
+                <outputRendition scope="after">content: '..]';</outputRendition>
+                <outputRendition>color: grey;</outputRendition>
+              </model>
+              <model behaviour="inline">
+                <outputRendition scope="before">content: '[...]';</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="graphic" mode="change">
+              <model behaviour="graphic">
+                <param name="url" value="@url"/>
+                <param name="width" value="@width"/>
+                <param name="height" value="@height"/>
+                <param name="scale" value="@scale"/>
+                <param name="title" value="desc"/>
+              </model>
+            </elementSpec>
+            <elementSpec ident="group" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+
+            <elementSpec ident="head" mode="change">
+              <model predicate="parent::figure" behaviour="block">
+                <outputRendition>font-style: italic;</outputRendition>
+              </model>
+              <model predicate="parent::table" behaviour="block">
+                <outputRendition>font-style: italic;</outputRendition>
+              </model>
+              <model predicate="parent::lg" behaviour="block">
+                <outputRendition>font-style: italic;</outputRendition>
+              </model>
+              <model predicate="parent::list" behaviour="block">
+                <outputRendition>font-weight: bold;</outputRendition>
+              </model>
+              <model predicate="parent::div" behaviour="heading">
+                <param name="level" value="count(ancestor::div)"/>
+              </model>
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="hi" mode="change">
+              <model predicate="@rendition" behaviour="inline" useSourceRendition="true">
+                <outputRendition>font-style: italic;</outputRendition>
+              </model>
+              <model predicate="not(@rendition)" behaviour="inline">
+                <outputRendition>font-style: italic;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="imprimatur" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="item" mode="change">
+              <model behaviour="listItem"/>
+            </elementSpec>
+
+            <elementSpec ident="l" mode="change">
+              <model behaviour="block" useSourceRendition="true">
+                <outputRendition> margin-left: 1em; </outputRendition>
+              </model>
+              <exemplum xml:lang="en" versionDate="2016-11-18">
+                <!-- EEBO-TCP: A57257 -->
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <argument>
+                    <l>With ſighs and tears her love he doth deſire,</l>
+                    <l>Since Cupid hath his ſenſes ſet on fire;</l>
+                    <l>His torment and his pain to her he ſhews,</l>
+                    <l>With all his proteſtations and his vows:</l>
+                    <l>At laſt ſhe yields to grant him ſome relief,</l>
+                    <l>And make him joyful after all his grief.</l>
+                  </argument>
+                </egXML>
+              </exemplum>
+            </elementSpec>
+
+            <elementSpec ident="label" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="lb" mode="change">
+              <model behaviour="break" useSourceRendition="true">
+                <param name="type" value="'line'"/>
+                <param name="label" value="@n"/>
+              </model>
+            </elementSpec>
+            <elementSpec ident="lg" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="list" mode="change">
+              <model predicate="@rendition" behaviour="list" useSourceRendition="true"/>
+              <model predicate="not(@rendition)" behaviour="list"/>
+            </elementSpec>
+            <elementSpec ident="listBibl" mode="change">
+              <model predicate="bibl" behaviour="list"/>
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="measure" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="milestone" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="name" mode="change">
+              <attList>
+                <attDef ident="type" mode="change">
+                  <valList mode="add" type="closed">
+                    <valItem ident="person"/>
+                    <valItem ident="forename"/>
+                    <valItem ident="surname"/>
+                    <valItem ident="personGenName"/>
+                    <valItem ident="personRoleName"/>
+                    <valItem ident="personAddName"/>
+                    <valItem ident="nameLink"/>
+                    <valItem ident="org"/>
+                    <valItem ident="country"/>
+                    <valItem ident="placeGeog"/>
+                    <valItem ident="place"/>
+                  </valList>
+                </attDef>
+              </attList>
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="note" mode="change">
+              <model predicate="@place" behaviour="note">
+                <param name="place" value="@place"/>
+                <param name="label" value="@n"/>
+              </model>
+              <model predicate="parent::div and not(@place)" behaviour="block">
+                <outputRendition>margin-left: 10px;margin-right: 10px;
+                  font-size:smaller;</outputRendition>
+              </model>
+              <model predicate="not(@place)" behaviour="inline">
+                <outputRendition scope="before">content:" [";</outputRendition>
+                <outputRendition scope="after">content:"] ";</outputRendition>
+                <outputRendition>font-size:small;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="num" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="opener" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="orig" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="p" mode="change">
+              <model behaviour="paragraph" useSourceRendition="true">
+                <outputRendition>text-align: justify;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="particDesc" mode="change">
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <particDesc>
+                    <listPerson>
+                      <person xml:id="Trinder" sex="m">
+                        <p>
+                          <name type="surname">Trinder</name>
+                          <name type="forename">William</name>
+                          <name type="forename">Martin</name>
+                        </p>
+                      </person>
+                      <person xml:id="Leland" sex="m">
+                        <p>
+                          <name type="surname">Leland</name>
+                          <name type="forename">Thomas</name>
+                        </p>
+                      </person>
+                    </listPerson>
+                  </particDesc>
+                </egXML>
+              </exemplum>
+              <remarks xml:lang="en" versionDate="2016-11-15">
+                <p/>
+              </remarks>
+            </elementSpec>
+            <elementSpec ident="pb" mode="change">
+              <constraintSpec ident="pbposition" scheme="schematron">
+                <constraint>
+                  <report xmlns="http://purl.oclc.org/dsdl/schematron"
+                    test="parent::*/text() and not           (preceding-sibling::text() and           following-sibling::text())"
+                    >please make sure pb elements are not at the start or end of mixed content
+                  </report>
+                </constraint>
+              </constraintSpec>
+              <model behaviour="break" useSourceRendition="true">
+                <param name="type" value="'page'"/>
+                <param name="label"
+                  value="(concat(if(@n) then concat(@n,' ') else '',if(@facs) then
+                  concat('@',@facs) else ''))"/>
+                <outputRendition> display: block; margin-left: 4pt; color: grey; float: right; </outputRendition>
+                <outputRendition scope="before">content: '[Page ';</outputRendition>
+                <outputRendition scope="after">content: ']';</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="pc" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="person" mode="change">
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <person sex="1">
+                    <p>William Shakespeare, born in Stratford-upon-Avon, 26 April 1564, died in
+                      Stratford-upon-Avon, 23 April 1616, English playwright and poet</p>
+                  </person>
+                </egXML>
+              </exemplum>
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <person xml:id="Stevenson" sex="m" role="writer">
+                    <p>
+                      <name type="surname">Stevenson</name>
+                      <name type="forename">Robert</name>
+                      <name type="forename">Louis</name>
+                    </p>
+                  </person>
+                </egXML>
+              </exemplum>
+              <remarks xml:lang="en" versionDate="2016-11-15">
+                <p/>
+              </remarks>
+            </elementSpec>
+            <elementSpec ident="place" mode="change">
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <place xml:id="Hereford">
+                    <p>
+                      <name type="place">Hereford</name>
+                      <name type="country">England</name>
+                    </p>
+                  </place>
+                </egXML>
+              </exemplum>
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <place xml:id="Lithuania">
+                    <p>
+                      <name type="country">Lithuania</name>
+                      <name type="country" xml:lang="lt">Lietuva</name>
+                    </p>
+                    <place xml:id="Vilnius">
+                      <p>
+                        <name>Vilnius</name>
+                      </p>
+                    </place>
+                    <place xml:id="Kaunas">
+                      <p>
+                        <name>Kaunas</name>
+                      </p>
+                    </place>
+                  </place>
+                </egXML>
+              </exemplum>
+            </elementSpec>
+            <elementSpec ident="postscript" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="profileDesc" mode="change">
+              <model behaviour="omit"/>
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <profileDesc>
+                    <creation>
+                      <date notAfter="1623"/>
+                    </creation>
+                    <langUsage>
+                      <language ident="eng">English</language>
+                    </langUsage>
+                    <textClass>
+                      <keywords scheme="#LCSH">
+                        <term type="genre">Plays -- England -- 16th century</term>
+                        <term type="genre">Plays -- England -- 17th century</term>
+                        <term type="genre">Comedies -- England -- 16th century</term>
+                        <term type="genre">Comedies -- England -- 17th century</term>
+                        <term type="genre">Tragedies -- England -- 16th century</term>
+                        <term type="genre">Tragedies -- England -- 17th century</term>
+                      </keywords>
+                    </textClass>
+                  </profileDesc>
+                </egXML>
+              </exemplum>
+              <remarks xml:lang="en" versionDate="2016-11-15">
+                <p>Although the content model permits it, it is rarely meaningful to supply multiple
+                  occurrences for any of the child elements of <gi>profileDesc</gi> unless these are
+                  documenting multiple texts.</p>
+              </remarks>
+            </elementSpec>
+            <elementSpec ident="publisher" mode="change">
+              <model predicate="ancestor::teiHeader" behaviour="omit">
+                <desc>Omit if located in teiHeader. </desc>
+              </model>
+            </elementSpec>
+            <elementSpec ident="pubPlace" mode="change">
+              <model predicate="ancestor::teiHeader" behaviour="omit">
+                <desc>Omit if located in teiHeader. </desc>
+              </model>
+            </elementSpec>
+            <elementSpec ident="q" mode="change">
+              <model predicate="l" behaviour="block" useSourceRendition="true">
+                <outputRendition>margin-left: 10px; margin-right: 10px; </outputRendition>
+              </model>
+              <model predicate="ancestor::p or ancestor::cell" behaviour="inline"
+                useSourceRendition="true">
+                <outputRendition scope="before">content: '‘';</outputRendition>
+                <outputRendition scope="after">content: '’';</outputRendition>
+              </model>
+              <model behaviour="block" useSourceRendition="true">
+                <outputRendition>margin-left: 10px; margin-right: 10px; </outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="quote" mode="change">
+              <model predicate="ancestor::p" behaviour="inline" useSourceRendition="true">
+                <desc>If it is inside a paragraph then it is inline, otherwise it is block
+                  level</desc>
+                <outputRendition scope="before">content: '‘';</outputRendition>
+                <outputRendition scope="after">content: '’';</outputRendition>
+              </model>
+              <model behaviour="block" useSourceRendition="true">
+                <desc>If it is inside a paragraph then it is inline, otherwise it is block
+                  level</desc>
+                <outputRendition>margin-left: 10px; margin-right: 10px; </outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="ref" mode="change">
+              <model behaviour="inline" predicate="not(@target)"/>
+              <model predicate="not(text())" behaviour="link">
+                <param name="content" value="@target"/>
+                <param name="uri" value="@target"/>
+              </model>
+              <model behaviour="link">
+                <param name="uri" value="@target"/>
+              </model>
+            </elementSpec>
+            <elementSpec ident="reg" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="relatedItem" mode="change">
+              <model behaviour="inline"/>
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <bibl xml:id="Shirley1953">
+                    <author>Shirley, James</author>
+                    <title type="main">The gentlemen of Venice</title>
+                    <pubPlace>New York</pubPlace>
+                    <publisher>Readex Microprint</publisher>
+                    <date>1953</date>
+                    <extent>1 microprint card, 23 x 15 cm.</extent>
+                    <relatedItem type="otherForm">
+                      <bibl>
+                        <author>Shirley, James</author>
+                        <title type="main">The gentlemen of Venicd</title>
+                        <title type="sub">a tragi-comedie presented at the private house in
+                          Salisbury Court by Her Majesties servants</title>
+                        <pubPlace>London</pubPlace>
+                        <publisher>H. Moseley</publisher>
+                        <date>1655</date>
+                        <extent>78 p.</extent>
+                      </bibl>
+                    </relatedItem>
+                  </bibl>
+                </egXML>
+              </exemplum>
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <relatedItem type="otherForm"
+                    target="http://www.example.com/bibliography.xml#Shirley1655"/>
+                </egXML>
+              </exemplum>
+              <remarks versionDate="2016-11-14" xml:lang="en">
+                <p>If the <att>target</att> attribute is used to reference the related bibliographic
+                  item, the element must be empty.</p>
+              </remarks>
+            </elementSpec>
+            <elementSpec ident="rhyme" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="role" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="roleDesc" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="row" mode="change">
+              <attList>
+                <attDef ident="role" mode="change">
+                  <valList mode="add" type="closed">
+                    <valItem ident="data">
+                      <desc versionDate="2016-08-15" xml:lang="en">data cell</desc>
+                    </valItem>
+                    <valItem ident="label">
+                      <desc versionDate="2016-08-15" xml:lang="en">label cell</desc>
+                    </valItem>
+                    <valItem ident="sum">
+                      <desc versionDate="2016-08-15" xml:lang="en">row or column sum data</desc>
+                    </valItem>
+                    <valItem ident="total">
+                      <desc versionDate="2016-08-15" xml:lang="en">table total data</desc>
+                    </valItem>
+                  </valList>
+                </attDef>
+              </attList>
+              <model predicate="@role='label'" behaviour="row">
+                <outputRendition>font-weight: bold;</outputRendition>
+              </model>
+              <model behaviour="row">
+                <desc>Insert table row. </desc>
+              </model>
+            </elementSpec>
+            <elementSpec ident="rs" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="s" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="salute" mode="change">
+              <model predicate="parent::closer" behaviour="inline"/>
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="seg" mode="change">
+              <model behaviour="inline" useSourceRendition="true"/>
+            </elementSpec>
+            <elementSpec ident="set" mode="change">
+              <remarks versionDate="2016-11-14" xml:lang="en">
+                <p rend="dataDesc">Contains paragraphs or phrase level tags.</p>
+                <p>This element should not be used outside the front or back matter; for similar
+                  contextual descriptions within the body of the text, use the <gi>stage</gi>
+                  element.</p>
+              </remarks>
+            </elementSpec>
+            <elementSpec ident="sic" mode="change">
+              <model predicate="parent::choice and count(parent::*/*) gt 1" behaviour="inline"/>
+              <model behaviour="inline">
+                <outputRendition scope="before">content: '{';</outputRendition>
+                <outputRendition scope="after">content: '}';</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="signed" mode="change">
+              <model behaviour="block" predicate="parent::closer">
+                <outputRendition> text-align: right; </outputRendition>
+              </model>
+              <model behaviour="inline">
+                <outputRendition> font-style: italic; </outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="sp" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+
+            <elementSpec ident="speaker" mode="change">
+              <model behaviour="block">
+                <outputRendition> font-style:italic; </outputRendition>
+              </model>
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <div type="Act" n="I">
+                    <head>ACT I</head>
+                    <div type="Scene" n="1">
+                      <head>SCENE I</head>
+                      <stage rendition="#italic">Enter Barnardo and Francisco, two Sentinels, at
+                        several doors</stage>
+                      <sp>
+                        <speaker>Barn</speaker>
+                        <l part="Y">Who's there?</l>
+                      </sp>
+                      <sp>
+                        <speaker>Fran</speaker>
+                        <l>Nay, answer me. Stand and unfold yourself.</l>
+                      </sp>
+                      <sp>
+                        <speaker>Barn</speaker>
+                        <l part="I">Long live the King!</l>
+                      </sp>
+                      <sp>
+                        <speaker>Fran</speaker>
+                        <l part="M">Barnardo?</l>
+                      </sp>
+                      <sp>
+                        <speaker>Barn</speaker>
+                        <l part="F">He.</l>
+                      </sp>
+                      <sp>
+                        <speaker>Fran</speaker>
+                        <l>You come most carefully upon your hour.</l>
+                      </sp>
+                      <!-- ... -->
+                    </div>
+                  </div>
+                </egXML>
+              </exemplum>
+            </elementSpec>
+            <elementSpec ident="spGrp" mode="change">
+              <model behaviour="block"/>
+            </elementSpec>
+            <elementSpec ident="stage" mode="change">
+              <model behaviour="block">
+                <outputRendition>font-style: italic;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="subst" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="supplied" mode="change">
+              <model predicate="parent::choice" behaviour="inline"/>
+              <model predicate="@reason='damage'" behaviour="inline">
+                <outputRendition scope="before">content:"&lt;";</outputRendition>
+                <outputRendition scope="after">content:"&gt;";</outputRendition>
+              </model>
+              <model predicate="@reason='illegible' or not(@reason)" behaviour="inline">
+                <outputRendition scope="before">content:"[";</outputRendition>
+                <outputRendition scope="after">content:"]";</outputRendition>
+              </model>
+              <model predicate="@reason='omitted'" behaviour="inline">
+                <outputRendition scope="before">content:"(";</outputRendition>
+                <outputRendition scope="after">content:")";</outputRendition>
+              </model>
+              <model behaviour="inline">
+                <outputRendition scope="before">content:"{";</outputRendition>
+                <outputRendition scope="after">content:"}";</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="table" mode="change">
+              <model behaviour="table">
+                <outputRendition> font-size: smaller; background-color: #F0F0F0; </outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="taxonomy" mode="change">
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <classDecl>
+                    <taxonomy xml:id="OTASH">
+                      <bibl>University of Oxford Text Archive Subject Headings</bibl>
+                    </taxonomy>
+                  </classDecl>
+                </egXML>
+              </exemplum>
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <taxonomy>
+                    <category xml:id="literature">
+                      <catDesc>Literature</catDesc>
+                      <category xml:id="poetry">
+                        <catDesc>Poetry</catDesc>
+                        <category xml:id="sonnet">
+                          <catDesc>Sonnet</catDesc>
+                          <category xml:id="shakesSonnet">
+                            <catDesc>Shakespearean Sonnet</catDesc>
+                          </category>
+                          <category xml:id="petraSonnet">
+                            <catDesc>Petrarchan Sonnet</catDesc>
+                          </category>
+                        </category>
+                        <category xml:id="haiku">
+                          <catDesc>Haiku</catDesc>
+                        </category>
+                      </category>
+                      <category xml:id="drama">
+                        <catDesc>Drama</catDesc>
+                      </category>
+                    </category>
+                    <category xml:id="meter">
+                      <catDesc>Metrical Categories</catDesc>
+                      <category xml:id="feet">
+                        <catDesc>Metrical Feet</catDesc>
+                        <category xml:id="iambic">
+                          <catDesc>Iambic</catDesc>
+                        </category>
+                        <category xml:id="trochaic">
+                          <catDesc>trochaic</catDesc>
+                        </category>
+                      </category>
+                      <category xml:id="feetNumber">
+                        <catDesc>Number of feet</catDesc>
+                        <category xml:id="pentameter">
+                          <catDesc>Pentameter</catDesc>
+                        </category>
+                        <category xml:id="tetrameter">
+                          <catDesc>Tetrameter</catDesc>
+                        </category>
+                      </category>
+                    </category>
+                  </taxonomy>
+                  <!-- elsewhere in document -->
+                  <lg ana="#shakesSonnet #iambic #pentameter">
+                    <l>Shall I compare thee to a summer's day</l>
+                    <!-- ... -->
+                  </lg>
+                </egXML>
+              </exemplum>
+            </elementSpec>
+            <elementSpec ident="fileDesc" mode="change">
+              <model behaviour="title">
+                <param name="content" value="titleStmt"/>
+              </model>
+            </elementSpec>
+            <elementSpec ident="revisionDesc" mode="change">
+              <model behaviour="omit"/>
+            </elementSpec>
+            <elementSpec ident="encodingDesc" mode="change">
+              <model behaviour="omit"/>
+            </elementSpec>
+            <elementSpec ident="teiHeader" mode="change">
+              <attList>
+                <attDef ident="type" mode="delete"/>
+              </attList>
+              <!-- remove deprecated attribute -->
+              <model behaviour="metadata"/>
+              <exemplum xml:lang="en" versionDate="2016-11-14">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <teiHeader>
+                    <fileDesc>
+                      <titleStmt>
+                        <title>THE TEMPEST.</title>
+                        <author>Shakespeare, William, 1564-1616</author>
+                      </titleStmt>
+                      <publicationStmt>
+                        <distributor>
+                          <name>University of Oxford Text Archive</name>
+                          <address>
+                            <addrLine>Oxford University Computing Services</addrLine>
+                            <addrLine>13 Banbury Road</addrLine>
+                            <addrLine>Oxford</addrLine>
+                            <addrLine>OX2 6NN</addrLine>
+                          </address>
+                          <email>ota@oucs.ox.ac.uk</email>
+                        </distributor>
+                        <idno type="ota">http://ota.ox.ac.uk/id/5725</idno>
+                        <idno type="isbn10">1106027248</idno>
+                        <idno type="isbn13">9781106027245</idno>
+                        <availability status="free">
+                          <licence target="http://creativecommons.org/licenses/by-sa/3.0/">
+                            Distributed by the University of Oxford under a Creative Commons
+                            Attribution-ShareAlike 3.0 Unported License </licence>
+                        </availability>
+                      </publicationStmt>
+                      <sourceDesc>
+                        <bibl>Revised version of <relatedItem type="older"
+                            target="http://ota.ox.ac.uk/id/0119"/>
+                        </bibl>
+                        <bibl>The texts were originally prepared by Trevor Howard-Hill for use in
+                          his single volume concordances to Shakespeare (OUP, 1969f). They have
+                          since been reformatted to modern standards and carefully proofread by
+                          staff of Oxford University Press' Shakespeare Department for use in the
+                          new "Old Spelling" Oxford Shakespeare, under the general editorship of Dr
+                          Stanley Wells: <title>The complete works / William Shakespeare</title>;
+                          general editors, Stanley Wells and Gary Taylor ; editors Stanley Wells ...
+                          [et al.] ; with introductions by Stanley Wells. -- Oxford : Clarendon
+                          Press, 1986. -- (Oxford Shakespeare). -- ISBN 0-19-812926-2</bibl>
+                        <biblFull>
+                          <titleStmt>
+                            <title>THE TEMPEST.</title>
+                            <author>Shakespeare, William, 1564-1616</author>
+                            <editor role="editor">Lee, Sidney, Sir, 1859-1926</editor>
+                          </titleStmt>
+                          <extent>xxxv, 908 p. : facsims. ; 39 cm.</extent>
+                          <publicationStmt>
+                            <publisher>Clarendon Press</publisher>
+                            <pubPlace>Oxford</pubPlace>
+                            <date>1902</date>
+                          </publicationStmt>
+                        </biblFull>
+                      </sourceDesc>
+                    </fileDesc>
+                    <encodingDesc>
+                      <classDecl>
+                        <taxonomy xml:id="OTASH">
+                          <bibl>University of Oxford Text Archive Subject Headings</bibl>
+                        </taxonomy>
+                        <taxonomy xml:id="LCSH">
+                          <bibl>Library of Congress Subject Headings</bibl>
+                        </taxonomy>
+                      </classDecl>
+                    </encodingDesc>
+                    <profileDesc>
+                      <creation>
+                        <date notAfter="1623"/>
+                      </creation>
+                      <langUsage>
+                        <language ident="eng">English</language>
+                      </langUsage>
+                      <textClass>
+                        <keywords scheme="#LCSH">
+                          <term type="genre">Plays -- England -- 16th century</term>
+                          <term type="genre">Plays -- England -- 17th century</term>
+                          <term type="genre">Comedies -- England -- 16th century</term>
+                          <term type="genre">Comedies -- England -- 17th century</term>
+                          <term type="genre">Tragedies -- England -- 16th century</term>
+                          <term type="genre">Tragedies -- England -- 17th century</term>
+                        </keywords>
+                      </textClass>
+                    </profileDesc>
+                    <revisionDesc>
+                      <change when="2010-08-31">Header normalised</change>
+                    </revisionDesc>
+                  </teiHeader>
+                </egXML>
+              </exemplum>
+            </elementSpec>
+            <elementSpec ident="TEI" mode="change">
+              <attList>
+                <attDef ident="version" mode="delete"/>
+              </attList>
+              <!-- remove version attribute -->
+              <model behaviour="document"/>
+            </elementSpec>
+            <elementSpec ident="term" mode="change">
+              <exemplum xml:lang="en">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <keywords>
+                    <term>huntin</term>
+                    <term>shootin</term>
+                    <term>fishin</term>
+                  </keywords>
+                </egXML>
+              </exemplum>
+              <remarks versionDate="2016-09-20" xml:lang="en">
+                <p>This element should only be used in the TEI Header</p>
+              </remarks>
+
+            </elementSpec>
+            <elementSpec ident="text" mode="change">
+              <constraintSpec xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:XSL="http://www.w3.org/1999/XSL/Transform" ident="headeronlyelement"
+                scheme="schematron">
+                <constraint>
+                  <!-- <rule xmlns="http://purl.oclc.org/dsdl/schematron"
+                    context="tei:att | tei:biblFull | tei:biblStruct | tei:change | tei:charDecl | tei:charProp | tei:editor
+                    | tei:editorialDecl | tei:email | tei:encodingDesc | tei:extent | tei:fileDesc | tei:gi | tei:glyph | tei:glyphName | 
+                    tei:idno | tei:imprint | tei:keywords | tei:licence | tei:listChange | tei:listPerson | tei:localName | tei:monogr | 
+                    tei:msDesc | tei:msIdentifier | tei:person | tei:physDesc | tei:profileDesc | tei:publicationStmt | tei:relatedItem | 
+                    tei:repository | tei:resp | tei:respStmt | tei:sourceDesc | tei:tag | tei:teiHeader | tei:term | tei:textClass | tei:textDesc 
+                    | tei:titleStmt | tei:typeDesc | tei:val | tei:value">-->
+                  <rule xmlns="http://purl.oclc.org/dsdl/schematron"
+                    context="tei:term | tei:biblFull ">
+                    <report test="ancestor::tei:text">Error: The element <name/> is not permitted
+                      outside the header</report>
+                  </rule>
+                </constraint>
+              </constraintSpec>
+              <model behaviour="body">
+                <outputRendition> max-width: 80%; margin: auto; font-family: Verdana, Tahoma,
+                  Geneva, Arial, Helvetica, sans-serif; </outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="time" mode="change">
+              <model behaviour="inline"/>
+            </elementSpec>
+            <elementSpec ident="title" mode="change">
+              <modelSequence predicate="parent::titleStmt/parent::fileDesc">
+                <model predicate="preceding-sibling::title" behaviour="text">
+                  <param name="content" value="' — '"/>
+                </model>
+                <model behaviour="inline">
+                  <outputRendition>color: red; font-size: 2em;</outputRendition>
+                </model>
+              </modelSequence>
+              <model predicate="not(@level) and parent::bibl" behaviour="inline"/>
+              <modelSequence predicate="@level='m' or not(@level)">
+                <model behaviour="inline">
+                  <outputRendition>font-style: italic;</outputRendition>
+                </model>
+                <model predicate="ancestor::biblFull" behaviour="text">
+                  <param name="content" value="', '"/>
+                </model>
+              </modelSequence>
+              <modelSequence predicate="@level='s' or @level='j'">
+                <model behaviour="inline">
+                  <outputRendition>font-style: italic;</outputRendition>
+                </model>
+                <model predicate="following-sibling::* and     (  ancestor::biblFull)"
+                  behaviour="text">
+                  <param name="content" value="', '"/>
+                </model>
+              </modelSequence>
+              <modelSequence predicate="@level='u' or @level='a'">
+                <model behaviour="inline">
+                  <outputRendition>font-style: italic;</outputRendition>
+                </model>
+                <model predicate="following-sibling::* and     (    ancestor::biblFull)"
+                  behaviour="text">
+                  <param name="content" value="'. '"/>
+                </model>
+              </modelSequence>
+              <model behaviour="inline">
+                <outputRendition>font-style: italic;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="titlePage" mode="change">
+              <model behaviour="block" useSourceRendition="true">
+                <outputRendition> text-align: center;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="titlePart" mode="change">
+              <model behaviour="block" useSourceRendition="true"/>
+            </elementSpec>
+            <elementSpec ident="trailer" mode="change">
+              <model behaviour="block">
+                <outputRendition>color: green;</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="unclear" mode="change">
+              <attList>
+                <attDef ident="hand" mode="delete"/>
+              </attList>
+              <model behaviour="inline">
+                <outputRendition scope="after">content: ' [?] ';</outputRendition>
+              </model>
+            </elementSpec>
+            <elementSpec ident="w" mode="change">
+              <model behaviour="inline"/>
+              <exemplum xml:lang="en">
+                <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <s n="1">
+                    <w ana="#NP0" type="open" lemma="Marley">Marley</w>
+                    <w ana="#VBD" type="verb" lemma="be">was</w>
+                    <w ana="#AJ0" type="complement" lemma="die">dead</w>
+                  </s>
+                </egXML>
+              </exemplum>
+              <!--   though probably we'd rather do this with @pos rather than @ana -->
+
+            </elementSpec>
+          </specGrp>
+        </div>
+      </div>
+    </body>
+  </text>
+</TEI>
