@@ -11,3 +11,5 @@ Provide an entry-level, 80-20 TEI customization with its own Guidelines and acco
 * deprecate TEI simplePrint and possibly TEI Lite (subject to TEI Council approval)
 * actively advertise Vanilla as the recommended way to start with TEI
 
+[tentative outline for Vanilla Guidelines](outline)
+[instructions how to write Markdown for the GitHub pages](help)
