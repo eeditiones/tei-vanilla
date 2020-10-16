@@ -12,5 +12,7 @@ Provide an entry-level, 80-20 TEI customization with its own Guidelines and acco
 * actively advertise Vanilla as the recommended way to start with TEI
 
 [issue tracker](https://github.com/eeditiones/tei-vanilla/issues)
+
 [tentative outline for Vanilla Guidelines](https://github.com/eeditiones/tei-vanilla/blob/master/documentation/outline.md)
+
 [instructions how to write Markdown for the GitHub pages](help)
