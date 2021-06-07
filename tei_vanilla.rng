@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *********************************************************************************************************** -->
+<!-- *********************************************************************************************************** -->
+<error msg="Too many nested template or function calls. The stylesheet may be looping." exclass="class pl.psnc.dl.ege.exception.ConverterException" >pl.psnc.dl.ege.exception.ConverterException: Too many nested template or function calls. The stylesheet may be looping.
+	at pl.psnc.dl.ege.tei.TEIConverter.convert(TEIConverter.java:174)
+	at pl.psnc.dl.ege.component.NamedConverter.convert(NamedConverter.java:44)
+	at pl.psnc.dl.ege.ConversionPerformer.run(ConversionPerformer.java:45)
+	at java.lang.Thread.run(Thread.java:748)
+</error>
+
+<!-- *********************************************************************************************************** -->
+<!-- *********************************************************************************************************** -->
