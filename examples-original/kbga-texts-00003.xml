@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="kbga-texts-1003">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="volume" n="vol-01">Karl Barth - Rudolf Bultmann. Briefwechsel 1911-1966</title>
+        <title type="formal">Brief Nr. 1</title>
+        <title type="content">Rudolf Bultmann an Karl Barth</title>
+        <title type="citation_line_1">Rudolf Bultmann an Karl Barth, 11. Juni 1911</title>
+        <title type="citation_line_2"
+          >https://kbga-pilot.karl-barth.ch/texts/1003 (Stand:31. Mai 2021)</title>
+        <title type="citation_line_3"
+          >Druck: Brief Nr. 1, in: Karl Barth-Gesamtausgabe. Karl Barth - Rudolf Bultmann. Briefwechsel 1911-1966, Zürich 1994, S. 3</title>
+      </titleStmt>
+      <editionStmt>
+        <edition>Digitale Karl Barth-Gesamtausgabe</edition>
+        <sponsor>Schweizerische Akademie der Geistes- und Sozialwissenschaften (SAGW)</sponsor>
+        <sponsor>Schweizerischer Nationalfonds (SNF)</sponsor>
+        <sponsor>Karl Barth-Stiftung</sponsor>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>Karl Barth-Archiv</publisher>
+        <pubPlace>Basel</pubPlace>
+        <date when="2021">2021</date>
+        <availability>
+          <licence target="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de"
+            >Creative Commons BY-NC-ND</licence>
+        </availability>
+        <idno type="url">https://kbga.karl-barth.ch/texts/1003</idno>
+      </publicationStmt>
+      <sourceDesc>
+        <!-- The printed Gesamtausgabe -->
+        <bibl type="pga" xml:id="pga"><title type="volume"
+          >Karl Barth - Rudolf Bultmann. Briefwechsel 1911-1966</title><title type="text"
+          >1</title><author ref="kba-actors-512"
+          >Bultmann, Rudolf</author><pubPlace>Zürich</pubPlace><publisher>Theologischer Verlag</publisher><date
+          type="publication">1994</date><biblScope unit="page"
+          >Pp. 3-3</biblScope><!--position within a volume--><biblScope unit="part"
+          >3</biblScope></bibl>
+        <!-- The first digital edition (data from xml and database) -->
+        <bibl type="asp" xml:id="asp"><title type="edition"
+          >Princeton Barth Project edition</title><title type="text"
+          >electronic edition of Karl Barth, Gesamtausgabe V.1, Karl Barth Rudolf Bultmann Briefwechsel 1911-1966, letter 1</title><author
+          ref="kba-actors-512"
+          >Bultmann, Rudolf</author><editor>James R. Adair, Jr.</editor><editor>Timothy J. Finney</editor><editor>Christian Kelm</editor><pubPlace>Princeton</pubPlace><publisher>Alexander Street Press</publisher><date
+          type="publication">2001</date></bibl>
+        <!-- Data from KBA (https://kba.anton.ch) -->
+        <msDesc type="source" xml:id="kbga-sources-2" n="A" subtype="Vorlage_der_Edition">
+          <msIdentifier>
+            <repository>Karl Barth-Archiv</repository>
+            <idno type="kba-objects-identifier">KBA 9311.73</idno>
+            <altIdentifier>
+              <idno type="URI">https://kba.anton.ch/objects/7950</idno>
+            </altIdentifier>
+            <altIdentifier>
+              <idno type="kba-objects-id">kba-objects-7950</idno>
+            </altIdentifier>
+            <altIdentifier>
+              <idno type="kbga-sources-id">kbga-sources-2</idno>
+            </altIdentifier>
+          </msIdentifier>
+          <msContents>
+            <msItem>
+              <title>Rudolf Bultmann an Karl Barth</title>
+              <docDate><date type="creation" when="1911-06-11">11. Juni 1911</date></docDate>
+            </msItem>
+          </msContents>
+        </msDesc>
+        <!-- we should provide more types: <bibl type="not-found-in-kba"></bibl> <bibl type="not-in-kba"></bibl>  -->
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="ger">German</language>
+      </langUsage>
+      <textClass>
+        <keywords>
+          <term>letter</term>
+        </keywords>
+      </textClass>
+      <correspDesc>
+        <correspAction type="sent">
+          <persName ref="kbga-actors-512">Bultmann, Rudolf</persName>
+          <placeName key="kbga-places-41">Marburg</placeName>
+          <date when="1911-06-11">11. Juni 1911</date>
+        </correspAction>
+        <correspAction type="received">
+          <persName ref="kbga-actors-2151">Barth, Karl</persName>
+          <placeName key="kbga-places-67">Genf</placeName>
+        </correspAction>
+      </correspDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2021-05-31T08:55:43+02:00"
+        >teiHeader was automatically produced from the database 2021-05-31T08:55:43+02:00</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="letter">
+        <pb xml:id="p003" ed="pga"/>
+        <head>1</head>
+        <opener>
+          Bultmann
+          <dateline><placeName ref="kbga-places-41"
+          >Marburg</placeName>, <date when="1911-06-11">11.VI.1911</date></dateline>
+          <salute>Lieber Herr <persName ref="kbga-actors-2151">Barth</persName>!</salute> </opener>
+        <p>Herzlich habe ich mich gefreut über die Nachricht Ihrer Verlobung.<note xml:id="n01"
+          >Mit <persName ref="kbga-actors-26">Nelly Hoffmann</persName> am <date when="1911-05-16"
+          >16.5.1911</date> in <placeName ref="kbga-places-67"
+          >Genf</placeName>.</note>
+                    Meiner Mitfreude und meiner treulichen Wünsche will ich Sie nur kurz versichern,
+                    ohne sie in das Gewand heidnischer oder christlicher Diatribe zu kleiden, — wozu
+                    ich versucht sein könnte.<note
+          xml:id="n02"
+          >Vgl. die Marburger theologische
+                        Dissertation von <bibl><author
+          ref="kbga-actors-512">R. Bultmann</author>, <title level="a"
+          >Der Stil der paulinischen Predigt und die kynisch-stoische Diatribe</title> (<title
+          level="m"><abbr ref="kbga-abbreviations-103"
+          >FRLANT</abbr></title> 13), <pubPlace>Göttingen</pubPlace> <date when="1910"
+          >1910</date> (Nachdruck der 1. Auflage mit einem Geleitwort von
+                                H. Hübner, <pubPlace>Göttingen</pubPlace>
+          <date when="1984">1984</date>).</bibl>
+          </note> Ich
+                    will nur noch hinzufügen, daß Wunsch und Freude auf dem Verständnis für Ihr
+                    Glück beruhen. Auf <hi
+          rend="i"
+          >vollem</hi> Verständnis — darf ich nicht sagen;
+                    denn Sie würden es mit Recht bezweifeln. Aber doch auf soviel, wie ein in die
+                    Einsamkeit gebannter Freund es aufbringen kann; und das ist nicht wenig. — Wenn
+                    es dessen noch bedürfte, so könnte dieser Vergleich Sie das Maß Ihres Glücks
+                    noch mehr ermessen lassen; so aber mag er Ihnen wenigstens meine Teilnahme
+                    bezeugen!</p>
+        <closer> <salute>Mit herzlichem Gruß</salute> <salute>Ihr</salute> <signed> <persName
+          ref="kbga-actors-512">Rudolf Bultmann</persName> </signed> </closer>
+      </div>
+    </body>
+  </text>
+</TEI>

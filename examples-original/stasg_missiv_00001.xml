@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>StadtASG Missive, Nr. 1</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>Stadtarchiv der Ortsbürgergemeinde St. Gallen</publisher>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc type="missiv">
+                    <msIdentifier>
+                        <idno>StadtASG Missive_1_1/2</idno>
+                    </msIdentifier>
+                    <physDesc>
+                        <objectDesc>
+                            <supportDesc>
+                                <support>Papier</support>
+                            </supportDesc>
+                        </objectDesc>
+                    </physDesc>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <abstract>
+                <p>Konrad am Wasen, der mit Stadtverweis bestraft wurde, bittet Bürgermeister und
+                    Rat zu St. Gallen um sicheres Geleit, damit er noch seine Angelegenheiten in der
+                    Stadt erledigen könne.</p>
+            </abstract>
+            <langUsage>
+                <language ident="deu">Deutsch</language>
+            </langUsage>
+            <textClass>
+                <keywords>
+                    <term ref="key005217">Stadtverweis</term>
+                    <term ref="key000600">Geleit</term>
+                </keywords>
+            </textClass>
+            <correspDesc>
+                <correspAction type="sent">
+                    <persName ref="per009962">Konrad am Wasen</persName>
+                    <date>1417-01-19</date>
+                </correspAction>
+                <correspAction type="received">
+                    <orgName ref="org002601">Bürgermeister und Rat zu St. Gallen</orgName>
+                </correspAction>
+            </correspDesc>
+        </profileDesc>
+        <revisionDesc>
+            <change type="transcription" status="approved">
+                <p/>
+                <persName>SO</persName>
+                <date>2018-06-29</date>
+            </change>
+            <change type="tagging" status="done">
+                <persName>CS/dg</persName>
+                <date>2019-05-20</date>
+            </change>
+        </revisionDesc>
+
+    </teiHeader>
+    <text>
+        <body>
+            <pb facs="StadtASG_Missive_1_1.JPG" n="1"/>
+            <p>
+                <lb n="1"/>Min undertaenig willig dienst voran gnaedigen lieben herren. Alz iuver
+                wißhait wol <lb n="2"/>wissenlich ist, wie ich von iuver wißhait gestrafft und von
+                iuver statt gewiset <lb n="3"/>bin, in dem und anderm ich alle zit iuver wißhait
+                undertaenig und gehorsam <lb n="4"/>sin wil, alz billich ist, sol iuver wißhait
+                wissen, daz mir ettwaz sachen zuoge <lb break="no" n="5"/>fallen sint, darinne ich
+                bedörfft mich in iuver statt ze fuegen. Hier umb so <lb n="6"/>bitt ich iuver
+                wisßait mit besunderm ernst flißentlich, mir iuver sicher gelait <lb n="7"/>ze geben
+                in iuver statt und wider dar uß an min gewarsamy, daz ich min <lb n="8"/>an ligent
+                sachen nauch notturfft volenden müge. Daz begeren ich alle zit <lb n="9"/>mit willen
+                umb iuver gemain statt und alle die iuvern ze gedienen. Geben an <lb n="10"
+                    /><origDate when="1417-01-19">zinstag nauch Hilary anno etc. XVIIo</origDate>.
+                    <lb n="11"/><persName role="issuer" ref="per009962">Cuni am Wasen</persName>
+                iuver <lb n="12"/>undertaeniger. </p>
+
+            <pb facs="StadtASG_Missive_1_2.JPG" n="2"/>
+            <p>
+                <lb n="13"/>Den ersamen wisen dem <orgName ref="org002601" role="recipient"
+                    >burgermaister und <lb n="14"/>rat ze sant Gallen</orgName> minen gnaedigen <lb
+                    n="15"/>herren. </p>
+        </body>
+    </text>
+</TEI>
