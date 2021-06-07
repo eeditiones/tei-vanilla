@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+
+      <body>
+
+         <div type="salutation">
+            <p>
+               <pb n="BCz, 1594, p. 225" xml:id="/1/9/16919_000_IDL116BCz_1594p225.jpg"/>
+            </p>
+            <p> Salutem et omnis boni incrementum. Generose Domine amice <app>
+                  <lem><expan>observan<ex>dissime</ex></expan></lem>
+                  <rdg><expan>observan<ex>de</ex></expan></rdg>
+               </app>. </p>
+         </div>
+
+         <div type="main_content">
+            <p>
+               <seg type="incipit">Litterae Generositatis Vestrae erunt mihi gratissimae, cum quia
+                  eas longo iam tempore non viderim</seg>, tum etiam, quia benevolentiae et amoris
+               in me vestri clara ferebant indicia. Habeo vobis gratias, quas possum, quod utique
+               per tot tempora et locorum intercapedines me non obliviscitur. Petitis, ut vobis quae
+               hic aguntur uberius describerem, nec tamen taedio legendi afficeremini, complectar
+               brevibus. Hactenus <rs type="person" key="248">imperatorem</rs> fastidiose hic
+               opperiebamur cum magnis omnium impensis et sumptu, et hactenus nobis verba data sunt.
+               Pridie tamen, compositis omnibus rebus, <rs type="person" key="68">cardinalis
+                  Gurcensis</rs> hinc ab iis <rs type="person" key="24 1584">regibus</rs>
+               amicabiliter solvit, qui <rs type="person" key="248">imperatorem</rs> ad quartum ab
+               hinc lapidem circa <name type="place" key="859">Prugk</name> oppidulum ferre debet.
+               Ibi omnia confecta confirmari debent tractabiturque ibidem, si necesse erit, nec ne,
+               quod <rs type="person" key="24 1584">reges</rs> isti <name type="place" key="42"
+                  >Viennam</name> ire debent. Si in hoc conventu in <rs type="place" key="859"
+                  >Prugk</rs> res possunt componi, vix credo <rs type="person" key="24">regem</rs>
+               nostrum iturum <name type="place" key="42">Viennam</name>, et sic spes nobis est
+               redeundi proximior, quam antea. Res Prutenae in hunc modum compositae sunt, quod <rs
+                  type="person" key="18">magister generalis</rs> tenebitur et debet <rs
+                  type="person" key="24">regi nostro</rs> praestare homagium et omnia in pace
+               perpetua contenta servare. Hic tamen, ne conditio immutata, quod <name type="person"
+                  key="1147">Poloni</name> in ordinem recipi non debent, et auxilium, quod contra
+               infideles <rs type="person" key="18">magister</rs>
+               <rs type="person" key="24">regi</rs> ferre tenetur. Etiam habet quoddam moderamen.
+               Sunt hic multi <name type="person" key="1098">Germani</name>, quibus isti tractatus
+               minime placent, qui et <rs type="person" key="248">imperatori</rs>, et <rs
+                  type="person" key="68">cardinali</rs> maledicunt, dum convenient et dextra dextrae
+               data fiunt, istaque consanguinitas et amicitia aucta inter hos <rs type="person"
+                  key="24 1584">reges</rs> et imperatorem omnia bene stabunt et ad optatum
+               deducentur finem etc. </p>
+            <p>
+               <ref target="travel" ana="money">
+                  <rs type="person" key="1094">Nuntius Vester</rs> deficiebat in viatico. Libens ei
+                  subvenissem, sed in eodem hic fere omnes deficimus. Rogavi igitur dominum <rs
+                     type="person" key="1750">thesaurarium</rs>, ut pro eo ad <rs type="person"
+                     key="24">maiestatem regiam</rs> intercederet, ut aliquid daretur.</ref>
+               Promisit demum operam, commotus tamen fuit, quod huc ad <rs type="person" key="24"
+                  >regem</rs> mitteretis in negotiis, quae castri
+                  <expan>provision<ex>em</ex></expan> decernunt, ac si rex hic nihil aliud haberet
+               agendum, quam quod hic de ista provisione cogitaret. Sed nostis mores <rs
+                  type="person" key="1750">hominis</rs> etc. </p>
+            <p> Scire etiam vultis, cui me applicuerim in ista metamorphosi. Incertus adhuc sum,
+               utrisque <expan>a<ex>lio</ex>qu<ex>in</ex></expan> me offerre, plus tamen <rs
+                  type="person" key="69">domino Praemisiliensi</rs>, qui maiorem quandam humanitatem
+               videtur pro se ferre, et ibi, quantum in me erat, Generositatem Vestram commendavi,
+               itaque vos etiam rogo, me domino meo magnifico <rs type="person" key="1094">palatino
+                  Wladislaviensi</rs> et omnibus nostris amicis commendatum efficite, et cum coniuge
+               ac liberis faustiter valete. </p>
+         </div>
+         <div type="datum">
+            <p>
+               <app>
+                  <lem><expan>Dat<ex>ae</ex></expan></lem>
+                  <rdg><expan>Dat<ex>um</ex></expan></rdg>
+               </app>
+               <name type="place" key="28">Posonii</name>, XXV Maii, anno MDXV. </p>
+         </div>
+         <div type="signature">
+            <p>
+               <name type="person" key="1">Iohannes Fflaschbinder</name>
+            </p>
+         </div>
+         <div type="postscript">
+            <p>
+               <anchor xml:id="1"/>Cladem acceperunt nostri <name type="person" key="1344"
+                  >Hungari</name> ductore <rs type="person" key="1341">domino Ioanne pallatino
+                  Czepusiensi</rs> fratre <rs type="person" key="1342">reginae nostrae</rs>, non
+               parum omnia impedimenta et machinas et castra campestria <name type="person"
+                  key="1343">Turci</name> acceperunt, multis occisis, aliis in fugam versis, vix
+               ipse campiductor socer noster ad <name type="place" key="671">Albam Regalem</name>
+               profugit. Sic solet imperatoribus accidere, qui fiunt ductores antequam milites.
+               Rursus huc venit fama, quod <rs type="person" key="1751">episcopus Hesperinski</rs>
+               <name type="person" key="1343">Thurcos</name> profligasset, multis occisis, et rursus
+               ablata recuperasset, et quod in campis <choice>
+                  <corr type="lemma">adhuc</corr>
+                  <sic>aduc</sic>
+               </choice> ab utraque parte agitur. Dii adsint nostris etc. </p>
+         </div>
+      </body>
+      <back>
+         <div type="notes">
+            <note place="app" n="1" target="a1">Before postscript annotation of copyist: <hi
+                  rend="i">In cordiali continebatur</hi>. The word <hi rend="i">cordiale</hi> may
+               mean that this part of the letter was written in cipher.</note>
+         </div>
+
+      </back>
+
+   </text>
+
+</TEI>
