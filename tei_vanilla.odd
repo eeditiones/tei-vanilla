@@ -103,20 +103,12 @@
         </classSpec>
         <classSpec ident="att.damaged" type="atts" mode="change">
           <classes mode="change">
-            <memberOf key="att.damaged"/>
-            <memberOf key="att.damaged"/>
             <memberOf key="att.dimensions" mode="delete"/>
             <memberOf key="att.written" mode="delete"/>
           </classes>
         </classSpec>
-        <classSpec ident="att.dimensions" type="atts" mode="change">
-          <classes mode="change">
-            <memberOf key="att.dimensions"/>
-          </classes>
-        </classSpec>
         <classSpec ident="att.naming" type="atts" mode="change">
           <classes mode="change">
-            <memberOf key="att.naming"/>
             <memberOf key="att.canonical" mode="delete"/>
           </classes>
         </classSpec>
