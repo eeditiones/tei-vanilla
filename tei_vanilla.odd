@@ -89,9 +89,9 @@
 
 
         <moduleRef key="textcrit" include="listWit witness app lem rdg"/>
-        <moduleRef key="namesdates" include="listPerson listPlace orgName persName placeName person place org"/>
+        <moduleRef key="namesdates" include="listPerson listPlace listOrg orgName persName placeName person place org"/>
         <moduleRef key="msdescription" include="material msContents msDesc msIdentifier msItem origDate origPlace physDesc repository seal sealDesc support supportDesc width altIdentifier condition dimensions height"/>
-        <moduleRef key="transcr" include="facsimile space subst supplied surface zone addSpan damage damageSpan delSpan handShift"/>
+        <moduleRef key="transcr" include="ex facsimile space subst supplied surface zone addSpan damage damageSpan delSpan handShift"/>
         <moduleRef key="corpus" include="particDesc settingDesc setting"/>
         <moduleRef key="figures" include="row table cell figure formula"/>
         <moduleRef key="linking" include="seg ab anchor"/>
@@ -107,11 +107,11 @@
             <memberOf key="att.written" mode="delete"/>
           </classes>
         </classSpec>
-        <classSpec ident="att.naming" type="atts" mode="change">
+        <!--classSpec ident="att.naming" type="atts" mode="change">
           <classes mode="change">
             <memberOf key="att.canonical" mode="delete"/>
           </classes>
-        </classSpec>
+        </classSpec-->
         <classSpec ident="att.formula" type="atts" mode="delete"/>
         <classSpec ident="att.fragmentable" type="atts" mode="delete"/>
         <classSpec ident="att.global.source" type="atts" mode="delete"/>
