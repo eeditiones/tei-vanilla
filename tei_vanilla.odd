@@ -89,7 +89,7 @@
 
 
         <moduleRef key="textcrit" include="listWit witness app lem rdg"/>
-        <moduleRef key="namesdates" include="listPerson listPlace listOrg addName affiliation forename genName geo location nameLink objectName org orgName persName person place placeName population roleName state surname"></moduleRef>
+        <moduleRef key="namesdates" include="listPerson listPlace listOrg addName affiliation forename genName geo location nameLink objectName org orgName persName person place placeName population roleName state surname birth death sex occupation"></moduleRef>
         <moduleRef key="msdescription" include="layoutDesc layout material msContents msDesc msIdentifier msItem objectDesc origDate origPlace physDesc repository seal sealDesc summary support supportDesc width altIdentifier condition dimensions height history acquisition origin provenance summary"/>
         <moduleRef key="transcr" include="ex facsimile space subst supplied surface zone addSpan damage damageSpan delSpan handShift"/>
         <moduleRef key="corpus" include="particDesc settingDesc setting"/>
