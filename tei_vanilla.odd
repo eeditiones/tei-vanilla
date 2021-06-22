@@ -79,7 +79,7 @@
         <moduleRef key="header" include="teiHeader fileDesc titleStmt publicationStmt sourceDesc licence projectDesc rendition correspAction correspDesc correspContext revisionDesc seriesStmt tagUsage tagsDecl taxonomy textClass abstract availability catDesc catRef category change classCode classDecl creation edition editionStmt editorialDecl encodingDesc extent idno keywords langUsage language listChange profileDesc"/>
 
         <!-- required core elements (p and title for use in titleStmt) -->
-        <moduleRef key="core" include="p title label measure milestone graphic name orig pubPlace publisher quote reg resp respStmt choice rs sic term textLang time unclear abbr add address author bibl biblScope cb corr date del desc editor expan foreign gap head hi item l lb lg list listBibl measureGrp note num pb ref"/>
+        <moduleRef key="core" include="p title label measure milestone graphic name orig pubPlace publisher quote reg resp respStmt choice rs sic term textLang time unclear abbr add address author bibl biblScope cb cit corr date del desc editor expan foreign gap head hi item l lb lg list listBibl measureGrp note num pb ref"/>
 
         <!-- required textstructure elements (TEI, text, and body) -->
         <moduleRef key="textstructure" include="TEI text body group postscript salute signed back closer dateline div front opener"/>
@@ -89,8 +89,8 @@
 
 
         <moduleRef key="textcrit" include="listWit witness app lem rdg"/>
-        <moduleRef key="namesdates" include="listPerson listPlace listOrg orgName persName placeName person place org"/>
-        <moduleRef key="msdescription" include="material msContents msDesc msIdentifier msItem origDate origPlace physDesc repository seal sealDesc support supportDesc width altIdentifier condition dimensions height"/>
+        <moduleRef key="namesdates" include="listPerson listPlace listOrg addName affiliation forename genName geo location nameLink objectName org orgName persName person place placeName population roleName state surname"></moduleRef>
+        <moduleRef key="msdescription" include="layoutDesc layout material msContents msDesc msIdentifier msItem objectDesc origDate origPlace physDesc repository seal sealDesc summary support supportDesc width altIdentifier condition dimensions height history acquisition origin provenance summary"/>
         <moduleRef key="transcr" include="ex facsimile space subst supplied surface zone addSpan damage damageSpan delSpan handShift"/>
         <moduleRef key="corpus" include="particDesc settingDesc setting"/>
         <moduleRef key="figures" include="row table cell figure formula"/>
@@ -114,7 +114,6 @@
         </classSpec-->
         <classSpec ident="att.formula" type="atts" mode="delete"/>
         <classSpec ident="att.fragmentable" type="atts" mode="delete"/>
-        <classSpec ident="att.global.source" type="atts" mode="delete"/>
         <elementSpec ident="lem" mode="change">
           <classes mode="change">
             <memberOf key="att.typed"/>
@@ -126,6 +125,51 @@
             <memberOf key="att.typed"/>
             <memberOf key="att.written"/>
           </classes>
+        </elementSpec>
+        <elementSpec ident="persName" mode="change">
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <persName corresp="marx_karl">Karl Marx</persName>
+            </egXML>
+          </exemplum>
+          <remarks>
+            <p>Within body text, persName should mark the occurrence of a person's name and (optionally) reference a more detailed description of that person in the header.</p>
+          </remarks>
+        </elementSpec>
+        <elementSpec ident="place" mode="change">
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <place xml:id="Balearic_Islands">
+                <placeName>Balearic Islands</placeName>
+              </place>
+              <place xml:id="Deia" corresp="#Balearic_Islands">
+                <placeName>Deya</placeName>
+                <placeName>Deià</placeName>
+                <location>
+                  <geo>39.7484 2.64918</geo>
+                </location>
+              </place>
+            </egXML>
+          </exemplum>
+          <remarks>
+            <p>To establish hierarchical relationships between places, e.g. a settlement and the region it is contained in, use @corresp to refer to the broader entity.</p>
+          </remarks>
+        </elementSpec>
+        <elementSpec ident="idno" mode="change">
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <msIdentifier>
+                <idno>StAZH III AAb 1.16, Nr. 45</idno>
+                <idno type="URI">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?ID=3581064</idno>
+                <altIdentifier>
+                  <idno type="URI">https://elsewhere</idno>
+                </altIdentifier>
+              </msIdentifier>
+            </egXML>
+          </exemplum>
+          <remarks>
+            <p>For display, the idno with type "URI" is used as the link and the link text is taken from the first idno without type.</p>
+          </remarks>
         </elementSpec>
         <classSpec ident="att.rdgPart" type="atts" mode="delete"/>
         <classSpec ident="att.resourced" type="atts" mode="delete"/>
