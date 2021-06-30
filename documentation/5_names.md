@@ -74,11 +74,11 @@ TEI offers some special tags for tagging some types of entites. `<persName>` can
 #### Examples
 
 ```xml
-... <persName ref="#MzB">Michael de Buczacz</persName> ...
+... <persName key="#MzB">Michael de Buczacz</persName> ...
 ```
 
 ```xml
-... <persName role="issuer" ref="per009962">Cuni am Wasen</persName> ...
+... <persName role="issuer" key="per009962">Cuni am Wasen</persName> ...
 ```
 
 ### `<orgName>` organization name
