@@ -85,7 +85,7 @@ TEI offers some special tags for tagging some types of entites. `<persName>` can
 
 [TEI P5](https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-orgName.html)
 
-`<orgName>` can be understood as a shortcut for `<name type="organziation">`.
+`<orgName>` can be understood as a shortcut for `<name type="organization">`.
 
 To tag organzation you should have a clear understanding what in your edition is meant by the term "organization". That is sometimes hard to decide (eg. "Bishop of Konstanz").
 
