@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title xml:lang="de">Brief von August Boeckh an Ludmilla Assing<lb/>(Berlin, 16.
+                    April 1858)</title>
+                <title xml:lang="en">Letter from August Boeckh to Ludmilla Assing<lb/>(Berlin, 16
+                    April 1858)</title>
+                <title xml:lang="fr">Lettre d'August Boeckh à Ludmilla Assing<lb/>(Berlin, 16 avril
+                    1858)</title>
+                <funder>Deutsche Forschungsgemeinschaft: Emmy Noether-Programm</funder>
+                <principal>
+                    <persName ref="#anne.baillot">
+                        <forename>Anne</forename>
+                        <surname>Baillot</surname>
+                    </persName>
+                    <affiliation>
+                        <orgName ref="#hu.berlin">Humboldt-Universität zu Berlin</orgName>
+                        <address>
+                          <street>Unter den Linden 6</street>
+                          <postCode>10099</postCode>
+                          <settlement>Berlin</settlement>
+                          <country key="DE">Deutschland</country>
+                       </address>
+                    </affiliation>
+                </principal>
+                <respStmt>
+                    <resp>Edited by</resp>
+                    <persName ref="#sabine.seifert">
+                        <forename>Sabine</forename>
+                        <surname>Seifert</surname>
+                    </persName>
+                </respStmt>
+                <respStmt>
+                    <resp>Digitization by</resp>
+                    <orgName ref="#uni.krakau">Jagiellonen-Universität Krakau</orgName>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/3.0/de/deed.en">Attribution 3.0 Germany (CC BY 3.0)</licence>
+                </availability>
+                <date when-iso="2014-02"/>
+            </publicationStmt>
+            <seriesStmt>
+                <title type="genre">Briefe</title>
+                <title type="topic">Berliner Universität</title>
+                <title type="topic">Literarische Romantik</title>
+            </seriesStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <country key="DE">
+                            <seg xml:lang="de">Polen</seg>
+                            <seg xml:lang="en">Poland</seg>
+                            <seg xml:lang="fr">Pologne</seg>
+                        </country>
+                        <settlement>
+                            <seg xml:lang="de">Krakau</seg>
+                            <seg xml:lang="en">Kraków</seg>
+                            <seg xml:lang="fr">Cracovie</seg>
+                        </settlement>
+                        <institution ref="#uni.krakau">
+                            <seg xml:lang="de">Jagiellonen-Universität Krakau</seg>
+                            <seg xml:lang="en">Jagiellonian University Kraków</seg>
+                            <seg xml:lang="fr">Université jagellonne de Cracovie</seg>
+                        </institution>
+                        <repository>
+                            <seg xml:lang="de">Universitätsbibliothek</seg>
+                            <seg xml:lang="en">University library</seg>
+                            <seg xml:lang="fr">Bibliothèque universitaire</seg>
+                        </repository>
+                        <collection>
+                            <seg xml:lang="de">Varnhagen Sammlung</seg>
+                            <seg xml:lang="en">Varnhagen papers</seg>
+                            <seg xml:lang="fr">Fonds Varnhagen</seg>
+                        </collection>
+                        <idno type="ub.krakau">
+                            <seg xml:lang="de">Kasten 32 (Brief 13)</seg>
+                            <seg xml:lang="en">Box 32 (letter 13)</seg>
+                            <seg xml:lang="fr">Boîte 32 (lettre 13)</seg>
+                        </idno>
+                    </msIdentifier>
+                    <msContents>
+                        <msItem>
+                            <docDate when="1858-04-16"/>
+                            <note type="keyword" resp="#sabine.seifert">Absage Einladung</note>
+                        </msItem>
+                    </msContents>
+                    <physDesc>
+                        <objectDesc>
+                            <supportDesc>
+                                <support>
+                                    <material>
+                                        <seg xml:lang="de">Nichtgeripptes Papier.</seg>
+                                        <seg xml:lang="en">Paper, not laid.</seg>
+                                        <seg xml:lang="fr">Papier, non côtelé.</seg>
+                                    </material>
+                                </support>
+                                <extent>
+                                    <measure type="folio">
+                                        <seg xml:lang="de">1 Blatt</seg>
+                                        <seg xml:lang="en">1 folio</seg>
+                                        <seg xml:lang="fr">1 feuillet</seg>
+                                    </measure>
+                                </extent>
+                                <foliation>
+                                    <seg xml:lang="de">Keine Foliierung vorhanden.</seg>
+                                    <seg xml:lang="en">No foliation.</seg>
+                                    <seg xml:lang="fr">Pas de numérotation des pages.</seg>
+                                </foliation>
+                                <condition>
+                                    <seg xml:lang="de">Guter Erhaltungszustand, Faltspuren. Stempel
+                                        der Staatsbibliothek zu Berlin-PK.</seg>
+                                    <seg xml:lang="en">In a good state of preservation, some traces
+                                        of folding. Stamp of State Library Berlin.</seg>
+                                    <seg xml:lang="fr">En bon état. Quelques traces de plis. Timbre
+                                        Bibliothèque d'État de Berlin</seg>
+                                </condition>
+                            </supportDesc>
+                        </objectDesc>
+                        <handDesc>
+                            <handNote xml:id="major_hand" scope="major" medium="brown_ink" scribe="author" scribeRef="#p0178">
+                                <seg xml:lang="de">Hand des Verfassers August Boeckh, Brieftext in
+                                    brauner Tinte, vorwiegend in Kurrentschrift.</seg>
+                                <seg xml:lang="en">Hand of the sender August Boeckh, text of letter
+                                    in brown ink, mainly German script.</seg>
+                                <seg xml:lang="fr">Main de l'expéditeur August Boeckh, corps de la
+                                    lettre, encre marron, écriture majoritairement gothique.</seg>
+                            </handNote>
+                            <handNote xml:id="brown_hand" scope="minor" medium="brown_ink" scribe="archivist" scribeRef="#p0249">
+                                <seg xml:lang="de">Hand von Karl August Varnhagen von Ense, in
+                                    brauner Tinte und Kurrentschrift.</seg>
+                                <seg xml:lang="en">Hand of Karl August Varnhagen von Ense, in brown
+                                    ink and German script.</seg>
+                                <seg xml:lang="fr">Main de Karl August Varnhagen von Ense, encre
+                                    marron, écriture gothique.</seg>
+                            </handNote>
+                            <handNote xml:id="postman" scope="minor" medium="pen" scribe="postman">
+                                <seg xml:lang="de">Postvermerk, mit blauem und braunem Stift.</seg>
+                                <seg xml:lang="en">Postal message, in blue and brown pencil.</seg>
+                                <seg xml:lang="fr">Note de la poste, au crayon bleu et marron.</seg>
+                            </handNote>
+                        </handDesc>
+                        <accMat>
+                            <seg xml:lang="de">Ein Briefumschlag mit Adresse und Stempel.</seg>
+                            <seg xml:lang="en">One envelope, with address and postage stamp.</seg>
+                            <seg xml:lang="fr">Enveloppe avec adresse et cachet de la poste.</seg>
+                        </accMat>
+                    </physDesc>
+                    <history>
+                        <origin>
+                            <seg xml:lang="de">Der Brief wurde am <origDate when-iso="1858-04-16">16. April 1858</origDate> in <origPlace ref="#l1103">Berlin</origPlace> geschrieben.</seg>
+                            <seg xml:lang="en">The letter was written in <origPlace ref="#l1103">Berlin</origPlace> on <origDate when-iso="1858-04-16">16 April
+                                    1858</origDate>.</seg>
+                            <seg xml:lang="fr">La lettre a été écrite à <origPlace ref="#l1103">Berlin</origPlace> le <origDate when-iso="1858-04-16">16 avril
+                                    1858</origDate>.</seg>
+                        </origin>
+                        <acquisition>
+                            <seg xml:lang="de"><persName ref="#p0249">Varnhagens</persName>
+                                Handschriften-Sammlung wurde von seiner Nichte <persName ref="#p1894">Ludmilla Assing</persName> der <title ref="#g0117">Königlichen Bibliothek in Berlin</title>, heute
+                                Staatsbibliothek zu Berlin-PK, vermacht. Während des <date when-iso="1939/1945">Zweiten Weltkrieges</date> wurde sie nach
+                                    <placeName ref="#l0017">Schlesien</placeName> ausgelagert und
+                                schließlich in die Bibliothek der Jagiellonen-Universität <placeName ref="#l0534">Krakau</placeName> aufgenommen.</seg>
+                            <seg xml:lang="en"><persName ref="#p0249">Varnhagen's</persName> niece
+                                    <persName ref="#p1894">Ludmilla Assing</persName> gave the
+                                Varnhagen papers to the <orgName ref="#g0117">Royal Library in
+                                    Berlin</orgName>, today's Berlin State Library. During the <date when-iso="1939/1945">Second World War</date>, the papers were
+                                transferred to <placeName ref="#l0017">Silesia</placeName> and are
+                                now stored at the library of the Jagiellonian University <placeName ref="#l0534">Kraków</placeName>.</seg>
+                            <seg xml:lang="fr"><persName ref="#p0249">Varnhagen's</persName> niece
+                                    <persName ref="#p1894">Ludmilla Assing</persName> gave the
+                                Varnhagen papers to the <orgName ref="#g0117">Royal Library in
+                                    Berlin</orgName>, today's Berlin State Library. During the <date when-iso="1939/1945">Second World War</date>, the papers were
+                                transferred to <placeName ref="#l0017">Silesia</placeName> and are
+                                now stored at the library of the Jagiellonian University <placeName ref="#l0534">Kraków</placeName>.<!-- frz übersetzung einfügen--></seg>
+                        </acquisition>
+                    </history>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <projectDesc>
+                <p>Nachwuchsgruppe Berliner Intellektuelle 1800-1830</p>
+            </projectDesc>
+            <editorialDecl>
+                <correction method="markup">
+                    <seg xml:lang="de">Keine Korrekturen.</seg>
+                    <seg xml:lang="en">No corrections.</seg>
+                    <seg xml:lang="fr">Aucune correction.</seg>
+                </correction>
+                <hyphenation eol="hard" rend="dh"/>
+            </editorialDecl>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="de" usage="100"/>
+            </langUsage>
+           <correspDesc>
+                    <correspAction type="sent">
+                        <persName ref="#p0178">August Boeckh</persName>
+                       <placeName ref="#l1103">Berlin</placeName>
+                       <date when-iso="1858-04-16"/>
+                    </correspAction>
+                    <correspAction type="received">
+                        <persName ref="#p1894">Ludmilla Assing</persName>
+                    </correspAction>
+                   <correspContext><ref type="next" target="Brief112BoeckhanAssing.xml"/></correspContext>
+                </correspDesc>
+        </profileDesc>
+        <revisionDesc>
+            <change when-iso="2014-06-25" who="#sabine.seifert">Reworked respStmt according to new
+                structure.</change>
+            <change when-iso="2014-02-10" who="#sabine.seifert">Corrected French
+                translation.</change>
+            <change when-iso="2014-02-08" who="#sabine.seifert">Encoding of metadata, transcription
+                and annotation.</change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="transcription">
+                <pb n="1" facs="krakau_boeckh_varnhagen_13.jpg"/>
+                <note hand="#brown_hand" place="inline"><persName ref="#p0178">Böckh</persName>.
+                        <placeName ref="#l1103">Berlin</placeName>, den <date when-iso="1858-04-16">16. April 1858.</date></note>
+                <lb/>
+                <lb/>
+                <opener rend="align(center)">Hochgeehrtes <rs ref="#p1894">Fräulein</rs><note resp="#sabine.seifert"><persName ref="#p1894">Ludmilla Assing</persName> ist
+                        die Nichte von <persName ref="#p0249">Varnhagen</persName>. Sie erbte nach
+                        dessen Tod die Handschriftensammlung und gab <persName ref="#p0249">Varnhagens</persName>
+                        <title ref="#w03318">Tagebücher</title> sowie Briefe <persName ref="#p1482">Rahel Varnhagens</persName> und <persName ref="#p0276">Alexander von
+                            Humboldts</persName> heraus.</note>,</opener>
+                <lb rend="both"/>
+                <p>Mit großem Bedauern sehe ich mich in der Lage, die sehr gütige Ein<lb break="no"/>ladung auf <date when-iso="1858-04-17">Morgen</date> nicht annehmen zu können.
+                    Schon seit etlichen Tagen<lb/>bin ich auf dieselbe Zeit zu einer Conferenz
+                    beschieden, in welcher<lb/>ich nothwendig erscheinen muß; was mir um so
+                    unangenehmer ist, als<lb/>dieselbe mir keinen Ersatz bieten wird für das
+                    Vergnügen, welches<lb/>ich darum aufopfere.</p>
+                <p>Indem ich mich Ihnen angelegentlich empfehle, bitte ich Sie, hochgeehr<lb break="no"/>tes Fräulein, mich zugleich Ihrem Herrn <rs ref="#p0249">Oheim</rs> empfehlen und ihm<lb/>mein lebhaftes Bedauern meines
+                    nothgedrungenen Ausbleibens<lb/>mittheilen zu wollen.</p>
+                <closer>
+                    <salute rend="align(right)">Hochachtungsvoll und ergebenst</salute>
+                    <milestone unit="none" rend="vertical-rule align(right)"/>
+                    <dateline><placeName ref="#l1103">Berlin</placeName>
+                        <choice>
+                            <abbr>d</abbr>
+                            <expan>den</expan>
+                        </choice>
+                        <date when-iso="1858-04-16">16. April 1858.</date>
+                    </dateline>
+                    <signed>
+                        <hi rend="latin align(right)"><persName ref="p0178">Böckh</persName>.</hi>
+                    </signed>
+                </closer>
+                <pb n="2" facs="krakau_boeckh_varnhagen_14.jpg"/>
+                <stamp rend="align(right)">Poststempel [<hi rend="majuscule"><placeName ref="#l1103">BERLIN</placeName> STADTPOST-EX<unclear reason="faded" cert="medium">P</unclear> IX</hi> 16/1 12-1Vm]</stamp>
+                <lb/>
+                <note hand="postman">[Markierungen der Post]</note>
+                <p><hi rend="latin"><address>
+                            <addrLine rend="align(center)">An</addrLine>
+                            <addrLine rend="align(center)">Fräulein <persName ref="#p1894">Ludmilla Assing</persName></addrLine>
+                            <addrLine rend="align(center)">(<choice><abbr>Adr. Hrn.</abbr><expan>Adresse Herrn</expan></choice> <persName ref="#p0249">Varnhagen von Ense</persName>)</addrLine>
+                            <addrLine rend="align(right)"><choice><abbr>Mauerstr.</abbr><expan>Mauerstraße</expan></choice> 36.</addrLine></address></hi></p>
+                <pb n="3" facs="krakau_boeckh_varnhagen_15.jpg"/>
+                <stamp rend="align(right)">Poststempel [16/1 1-2 Nm]</stamp>
+                <lb/>
+                <stamp rend="align(right)">Bibliotheksstempel [<hi rend="majuscule">STAATSBIBLIOTHEK
+                            <placeName ref="#l1103">BERLIN</placeName></hi>]</stamp>
+            </div>
+        </body>
+    </text>
+</TEI>
