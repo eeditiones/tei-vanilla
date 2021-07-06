@@ -1,67 +1,116 @@
 Preface
-1. A Short Example
-2. The Structure of a TEI Vanilla Document 
-3. Encoding the Body
-  * Text Division Elements and Global Attributes
-  * Headings and Closings
+ - disclaimer: not erasing or superseding TEI Guidelines; for beginners, those just want to experiment, those who feel like their research project matches the goals here; for those who want to be a part of portals like Sources Online
+ - target audience:
+   - researchers needing a starting point to extend
+   - focus on European historical materials
+   - newcomers to TEI encoding seeking a reduced, recommended ODD as basis
+   - users who plan to publish an edition with TEI Publisher and expect a good out of the box rendition
+   - institutions hosting large, heterogenous corpora and looking for a way to make them available
+
+## A Short Example
+
+Point to example editions which demonstrate the features.
+Discuss a simplified, self-contained example, e.g. KB letter with entities defined in the header.
+
+## The Structure of a TEI Vanilla Document 
+   - metadata
+     - lists of entities
+     - publication info
+     - editors...
+   - edited text: 
+     - transcription, 
+     - translation(s), 
+     - commentaries (notes)
+   - all content should be contained in a div (change ODD to only allow div in front/back/body)
+   - publisher does not treat front/back specially (but you may assign a @rend or @type for visual separation)
+
+    ```xml
+    <front>
+      <div type="introduction"></div>
+    </front>
+    ```
+
+   - abstract/regest/summary may go into profileDesc
+  
+## Structure of the text
+  * Text Division Elements
+    * logical
+      * use nested divs to determine structure, concentrate on logical structure: volume/chapter/section...
+      * Headings: some divisions may have their own "title" which would be the first element in a division
+    * physical: pages, lines, columns
+      * Page and Line Numbers
+      * break attribute on lb
+      * ?handling multi-witness texts
   * Textual Components
-    - Verse
-    - Drama
-    - Other Kinds of Text Block
-  * Page and Line Numbers
+    - Verse: make clear the distinction between l - logical verse unit and lb - physical line
+    - Other Kinds of Text Block: seg, ab
+  
+  ## Phrase level 
   * Marking Highlighted Phrases
     - Changes of Typeface, etc.
     - Quotations and Related Features
     - Foreign Words or Expressions
-  * Notes
-  * Cross References and Links
+
+  ## Notes
+    - a. inline notes
+    - b. linked notes in back
+    
+  ## Cross References and Links
+    - Bibliographic Citations
     - Simple Cross References
     - Pointing to other documents
     - Special Kinds of Linking
-4. Editorial Interventions
+## Editorial Interventions
   * Correction and Normalization
   * Omissions, Deletions, and Additions
   * Abbreviation and their Expansion
-5. Names, Codes, and Numbers
+## Names, Codes, and Numbers
   * Names and Referring Strings
   * Formulae, Codes, and Special Characters
   * Dates and Times
   * Numbers and Measurements
-6. Lists
-7. Bibliographic Citations
-8. Tables
-9. Figures and Graphics
-10. Analysis
-  * Orthographic Sentences
-  * Words and Punctuation
-  * General-Purpose Interpretation Elements
-11. Common Attributes
-12. Composite and Floating Texts
-13. Front and Back Matter
-  * Front Matter
-    - Title Page
-    - Prefatory Matter
-    - Liminal Elements
-  * Back Matter
-    - Structural Divisions of Back Matter
-    - Specialized Front and Back Matter
-14. Encoding a Digital Facsimile
-15. The Electronic Title Page
+   
+## Graphics and Facsimiles
+  * @facs only
+  * `<facsimile>` and zones
+  * absolute vs relative facsimile urls
+
+## Text alignment
+  - translation/original
+  - text collations
+  
+
+
+## Metadata
   * The File Description
-    - The Title Statement
-    - The Edition Statement
-    - The Extent Statement
+    - Titles: full and short; series....
     - The Publication Statement
-    - Series and Notes Statements
+      - how to encode different roles: editor/funder... since only a subset of elements is available
+    - Series
     - The Source Description
-  * The Encoding Description
-    - Project Description and Sampling Declaration
-    - Editorial Declarations
-    - Tagging Declaration
-    - Reference, Prefix, and Classification Declarations
-    - The character declaration
-  * The Profile Description
-  * Other forms of metadata
-  * The Revision Description
-16. The TEI Processing Model
-17. The TEI Vanilla schema
+      - ... how to do it for archival materials
+      - idno, 
+      - examples for
+        - printed
+        - ms
+          - archival source (short identification)
+          - library (rich content)
+    - language information
+    - revisions
+  
+  ## Shared resources / Project Introductions / Authority files
+
+  discuss factoring it out for the project, not presenting in each document
+
+    - Taxonomies
+    - Prefixes (e.g. for facsimiles or refs)
+    - people/places...
+     
+  
+
+##  The TEI Vanilla schema
+  - how to assign a schema in oxygen/vscode and validate
+  - link to the document and tracker for bug reports / feature requests
+
+## TEI Publisher integration --- for the future
+   
