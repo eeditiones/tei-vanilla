@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?teipublisher odd="graves.odd" template="letter.html"?>
+<?xml-model href="../tei_vanilla.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <teiHeader>
+  <fileDesc>
+   <titleStmt>
+    <title>XII. Abteilung: Die Rechtsquellen des Kantons Schaffhausen, Erster Teil: Stadtrechte von
+     Schaffhausen und Stein am Rhein, 1. Reihe: Stadt und Territorialstaat Schaffhausen, Band 3: Die
+     Rechtsquellen von Schaffhausen ab 1416 bis zum Ende der Reformation (1535/1540)</title>
+    <respStmt>
+     <persName>Claudia Sutter</persName>
+     <resp key="transcript"/>
+    </respStmt>
+    <respStmt>
+     <persName>Claudia Sutter</persName>
+     <resp key="tagging"/>
+    </respStmt>
+    <respStmt>
+     <persName>Roman Sigg</persName>
+     <resp key="qualitycheck"/>
+    </respStmt>
+   </titleStmt>
+   <publicationStmt>
+    <!-- ak added p -->
+    <p><date type="electronic" when="2020"/></p>
+    <p><date type="print"/></p>
+    
+    <!-- ak commented this out -->
+    <!-- <availability>
+     <p xml:id="facs">Claudia Sutter</p>
+    wer hat Fotos gemacht?
+    </availability> -->
+   </publicationStmt>
+   <seriesStmt xml:id="ssrq-sds-fds">
+    <title>Sammlung Schweizerischer Rechtsquellen</title>
+    <respStmt>
+     <orgName>Rechtsquellenstiftung des Schweizerischen Juristenvereins</orgName>
+     <resp>Herausgeberschaft</resp>
+    </respStmt>
+    <idno>SSRQ_SH_I_3_14760602_01</idno>
+   </seriesStmt>
+   <sourceDesc>
+    <msDesc>
+     <msIdentifier>
+      <idno>StASH Ordnungen A 4, S. 127</idno>
+     </msIdentifier>
+     <head>Vorwort des 2. Stadtbuches</head>
+     <msContents>
+      <summary>
+       <p>Der Schaffhauser Stadtschreiber Heinrich Baumann beginnt das 2. Stadtbuch. Es soll die
+        neuen Gesetze der Stadt beinhalten, aber auch noch gültige Gesetze des 1. Stadtbuches in
+        aktualisierter Form aufnehmen.</p>
+      </summary>
+      <msItem>
+       <textLang>de</textLang>
+       <!-- ak commented this out
+       <filiation type="current"/>
+       -->
+      </msItem>
+     </msContents>
+     <physDesc>
+      <objectDesc>
+       <supportDesc>
+        <support>
+         <material>Pergament</material>
+        </support>
+        <extent>
+         <dimensions type="leaves">
+          <height unit="cm" quantity="00.0"/>
+          <!--fehlt-->
+          <width unit="cm" quantity="00.0"/>
+          <!--fehlt-->
+         </dimensions>
+        </extent>
+        <condition/>
+       </supportDesc>
+      </objectDesc>
+     </physDesc>
+     <history>
+      <origin>
+       <origDate when="1476-06-02" period="P1WD"/>
+       <!--pfingsten! floating holiday?-->
+       <origPlace ref="loc000701"/>
+      </origin>
+     </history>
+     <!-- <additional>
+     <listBibl>
+      <head>Editionen</head>
+       <bibl></bibl>
+      </listBibl>
+      <listBibl>
+       <head>Regest</head>
+       <bibl></bibl>
+      </listBibl>
+       <listBibl>
+        <head>Literatur</head>
+        <bibl></bibl> 
+      </listBibl>
+     </additional>-->
+    </msDesc>
+   </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+   <editorialDecl default="false">
+    <p>
+     <ref target="https://www.ssrq-sds-fds.ch/wiki/Transkriptionsrichtlinien"/>
+    </p>
+   </editorialDecl>
+  </encodingDesc>
+  <profileDesc>
+   <textClass default="false">
+    <keywords scheme="http://www.ssrq-sds-fds.ch/taxonomie">
+     <term ref="key004053"/>
+     <term ref="key004759"/>
+    </keywords>
+   </textClass>
+   <!-- ak auskommentiert
+    <particDesc default="false"/>
+   <settingDesc default="false"/>
+   -->
+  </profileDesc>
+ </teiHeader>
+
+ <text>
+  <group>
+   <text>
+    <body>
+     <div>
+      <pb n="127" facs="StASH_Ordnungen_A_4_S127"/>
+      <p>
+       <lb/>Harnach sind begriffen die <term ref="lem000361">recht</term>, die <term ref="lem007979"
+        >gesatzten</term>, <term ref="lem006294">harkommen</term>
+       <lb/>und <term ref="lem001000">gewonhaiten</term> der statt <orgName ref="org003512"
+        >Schaffhusen</orgName>, als dann von <lb/>alter har soͤlichs gehalten, ouch usser dem alten
+       stattbuͦch <lb/>nach und nach hierin gesetzt und gezogen, ouch jetz durch <lb/><orgName
+        ref="org002901">clainen und großen raut</orgName> erkennt und gesetzt sind und fu̍ro
+       <lb/>zuͦ halten gemacht und gesetzt werden. Und ward dis <lb/>buͦch ernu̍wert und angefangen
+       uff <origDate when="1476-06-02" period="P1WD">pfingsten in dem <lb/>jar, do man zalt von
+        gottes gepurt tusend vierhundert <lb/>sibentzig und sechs jar</origDate> durch <persName
+        ref="per028193">Hainrichen Bumann</persName>, <lb/>dozuͦmal <term ref="lem001359"
+        >stattschriber</term>. </p>
+     </div>
+    </body>
+   </text>
+  </group>
+
+  <back>
+   <div>
+    <p>Der Eintrag ist vollständig in roter Tinte geschrieben.</p>
+    <p>Vgl. <ref target="a">SSRQ SH 1/2 <!--REF TARGET in die NB--></ref> S. 1 (in der Handschrift
+     StASH Verfassung A 1 S. 26). </p>
+   </div>
+  </back>
+ </text>
+</TEI>
+<?oxy_options track_changes="on"?>

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://www.ssrq-sds-fds.ch/tei/TEI_Schema_SSRQ.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://www.ssrq-sds-fds.ch/tei/TEI_Schema_SSRQ.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-stylesheet type="text/css" href="https://www.ssrq-sds-fds.ch/tei/Textkritik_Version_tei-ssrq.css"?>
+<!--<?xml-stylesheet type="text/css" href="https://www.ssrq-sds-fds.ch/tei/Inhalt_Version_tei-ssrq.css"?>-->
+<TEI xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.tei-c.org/ns/1.0"
+ xmlns:xi="http://www.w3.org/2001/XInclude" n="1234" xml:lang="de"
+ xmlns:ssrq="http://ssrq-sds-fds.ch/ns/nonTEI">
+ <teiHeader>
+  <fileDesc>
+   <titleStmt>
+    <title>Gesucht wird... Anna Göldin!</title>
+    <respStmt>
+     <persName>Claudia Sutter</persName>
+     <resp key="transcript"/>
+    </respStmt>
+    <respStmt>
+     <persName>Claudia Sutter</persName>
+     <resp key="tagging"/>
+    </respStmt>
+    <respStmt>
+     <persName>Roman Sigg</persName>
+     <resp key="qualitycheck"/>
+    </respStmt>
+   </titleStmt>
+   <publicationStmt>
+    <date type="electronic" when="2020"/>
+    <date type="print"/>
+    <availability>
+     <p xml:id="facs">Stadtarchiv der Ortsbürgergemeinde St. Gallen</p>
+    </availability>
+   </publicationStmt>
+   <seriesStmt xml:id="ssrq-sds-fds">
+    <!--nein!-->
+    <title><!--Sammlung Schweizerischer Rechtsquellen--></title>
+    <!--nicht-->
+    <respStmt>
+     <orgName><!--Rechtsquellenstiftung des Schweizerischen Juristenvereins--></orgName>
+     <!--nein-->
+     <resp><!--Herausgeberschaft--></resp>
+     <!--ne-->
+    </respStmt>
+    <idno>SSRQ_SH_I_3_1xxxxxx</idno>
+    <!--nein-->
+    <!--Datum; u. U. von bis-->
+   </seriesStmt>
+   <sourceDesc>
+    <msDesc>
+     <msIdentifier>
+      <idno>StadtASG, Missiven, 1782 Januar 21 (132'319-132'326)</idno>
+     </msIdentifier>
+     <head>Brief von Evangelisch-Glarus an St. Gallen</head>
+     <msContents>
+      <summary>
+       <p/>Evangelisch-Glarus sucht per Steckbrief nach Anna Göldin und bittet St. Gallen um
+       Unterstützung. </summary>
+      <msItem>
+       <textLang>de</textLang>
+       <filiation type="current"/>
+      </msItem>
+     </msContents>
+     <physDesc>
+      <objectDesc>
+       <supportDesc>
+        <support>
+         <material>Papier</material>
+        </support>
+        <extent>
+         <dimensions type="leaves">
+          <height unit="cm" quantity="00.0"/>
+          <!--fehlt-->
+          <width unit="cm" quantity="00.0"/>
+          <!--fehlt-->
+         </dimensions>
+        </extent>
+        <condition/>
+       </supportDesc>
+      </objectDesc>
+      <sealDesc>
+       <!--von wem?-->
+       <seal xmlns:nontei="http://ssrq-sds-fds.ch/ns/nonTEI" n="1" nontei:material="wax"
+        nontei:condition="well-preserved" nontei:shape="round" nontei:attachment="wrapping-tie"/>
+      </sealDesc>
+     </physDesc>
+     <history>
+      <origin>
+       <origDate when="1782-01-21">21. Januar 1782</origDate>
+       <origPlace>Glarus</origPlace>
+      </origin>
+     </history>
+     <!-- <additional>
+     <listBibl>
+      <head>Editionen</head>
+       <bibl></bibl>
+      </listBibl>
+      <listBibl>
+       <head>Regest</head>
+       <bibl></bibl>
+      </listBibl>
+       <listBibl>
+        <head>Literatur</head>
+        <bibl></bibl> 
+      </listBibl>
+     </additional>-->
+    </msDesc>
+   </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+   <editorialDecl default="false">
+    <p>
+     <ref target="https://www.ssrq-sds-fds.ch/wiki/Transkriptionsrichtlinien"/>
+    </p>
+   </editorialDecl>
+  </encodingDesc>
+  <profileDesc>
+   <textClass default="false">
+    <keywords scheme="http://www.ssrq-sds-fds.ch/taxonomie">
+     <term/>
+     <!-- Keywords -> nur refs -->
+    </keywords>
+   </textClass>
+   <particDesc default="false"/>
+   <settingDesc default="false"/>
+  </profileDesc>
+ </teiHeader>
+
+ <text>
+  <group>
+   <text>
+    <body>
+     <div>
+      <pb n="1"/>
+      <head type="title">Unser fründlich willige Dienste, samt was wir ehren, <lb/>Liebs und Guts
+       vermögen zuvor, frommen, vorsichtigen, <lb/>ehrsamen und weisen, besonders guter Freund,
+       getrüwe, <lb/>liebe alte Eidtgenoßen. </head>
+      <p>
+       <lb/>Da die <persName>Anna Göldin</persName> aus der Gemeinde <placeName>Sennwald</placeName>
+       in der <lb/><placeName>Landvoghtey Hohen Sax und Forsteck</placeName>, welche sich in unse
+        <lb break="no"/>rem Land als eine <term>Dienst-Magdt</term> aufgehalten, wegen <lb/>einer
+        <term>Greuell That</term>, die sie vermittelt geheimer und <lb/>fast unbegreiflicher
+       beybringung einer Menge Glufen <lb/>und anderen Gezeugs gegen <add place="above">ein</add>
+       unschuldiges acht Jahr altes <lb/><term>Kind</term> verüebet, durch die <term>Flucht</term>
+       unserer Justiz entwei <lb break="no"/>chen mögen, uns aber und auch der gemeinen Sicherheit
+       <lb/>selbten sehr Vieles daran ligen sollen, dieser ungeheuren <lb/><term>Thäterin</term>
+       habhaft zu werden, um ihr die verdiente <term>Straf</term>
+       <lb/>anwerden zu laßen. </p>
+      <p>
+       <lb/>Als haben wir hiermit an euch U. G. L. A.<note>Durchgestrichen</note> E.<note>U.G.L.E. =
+        Unsere gnädig lieb Eidgenossen.</note><lb/>das freund-eidtgenößische Ansuchen machen wollen,
+       <lb/>daß euch belieben möchte, die gehörigen Vorkehrungen <lb/>zu treffen, damit in euerer
+       Bottmäßigkeit auf die in Bey <lb break="no"/>lag beschriebene, Unglückliche <persName>Anna
+        Göldin</persName> genaue <lb/>Aufsicht gehalten, und solche in betreffenden Fahl gefäng <lb
+        break="no"/>lich eingezogen, auch als dann uns deren Verhaft fürder <lb break="no"/>samt zu
+       derselben habhaft Werdung freundeidtgenöß <lb break="no"/>isch einberichtet werde! </p>
+      <p>
+       <lb/>Wir anerbieten uns dargegen dem Entdecker <lb/>dieser Göldin <measure>ein hundert
+        Cronenthaler</measure>
+       <term>Recompenz</term>
+       <lb/>zu bezahlen und auch die obrigkeitlichen Kösten abzu <lb break="no"/>tragen. Wer mit
+       unter Versicherung des bereitwilligsten </p>
+      <pb n="2"/>
+      <p>
+       <lb/>Reciproci euch U. G. L. A. <!--durchgestrichen--> E. samt uns volles <lb/>gnädiger
+       Bewahrung bestens empfehlen. Geben den <lb/><origDate>21. Jan. An. 1782</origDate> St.
+       V.<!--?--> . </p>
+      <p>
+       <lb/><orgName>Landamman und Rath <lb/>evanglr. Religion <lb/>zu Glaruß</orgName>.</p>
+      <!--<pb n="3"/>
+      <head type="subtitle">Signalement.</head>
+      <p>
+       <lb/>Anna Göldin, aus der gemeinde Sennwald der <lb/> landtvogthey Hochen Sax und Forsteck
+       zugehörig, Zürchergebiets,<lb/> ohngefähr 40 jahr alt, dicker und großer leibs statur,
+       vollkomme-<lb/> nen und rothbrächen angesicht, schwarzer haaren und augbra-<lb/> men, hat
+       graue etwas ungesunde augen, welche meistens<lb/> rothlecht aussehen. Ihr anschauen ist
+       niedergeschlagen und<lb/> redet ihre Sennwälder aussprach, trägt eine modenfarbe juppen,<lb/>
+       eine blaue und eine gestrichlete schoß, darunter eine blaue<lb/> schlingen oder schnäbelj
+       gestalt, ein damastenen grauen tschopen,<lb/> weis castorin strümpf, eine schwarze kappen,
+       darunter<lb/> ein weißes haüblj, ein schwarzes seiden bätlj und schwarze<lb/> leder schuhe,
+       darinn silberne rincken. </p>
+      <p>
+       <lb/>Canzley Glaruß </p>
+      <pb n="4"/>
+      <pb n="5"/>
+      <pb n="6"/>
+      <pb n="7"/>
+      <pb n="8"/>
+      <p>
+       <lb/>Denn frommen, vorischtigen, ehrsamen und <lb/>xxx Bürgermeister und Rath der Stadt
+       <lb/>St. Gallen, xxx besundern guten fründen <lb/>getrüwe Eidtgenossen. </p>
+      <add place="top" hand="hand20c">
+       <lb/>Glarus, 21. Jan. 1782 <lb/>Ansschreibung der Anna Göldi von Sennwald, <lb/>samt
+       Steckbrief u. Signalement. <lb/>[Später in Glarus als Hexe hingerichtet. <lb/>Letzter
+       Hexeprozess in der Schweiz!] </add>-->
+     </div>
+    </body>
+   </text>
+  </group>
+
+  <back>
+   <div>
+    <p/>
+    <!-- Kommentar zum Stück -->
+   </div>
+  </back>
+ </text>
+</TEI>
+
+<?oxy_options track_changes="on"?>

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?teipublisher odd="graves.odd" template="letter.html"?>
+<?xml-model href="../tei_vanilla.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+ <teiHeader>
+  <fileDesc>
+   <titleStmt>
+    <title>Quelleneditionen</title>
+    <respStmt>
+     <persName>Chartularium Sangallense</persName>
+     <resp key="transcript"/>
+    </respStmt>
+    <respStmt>
+     <persName>Claudia Sutter</persName>
+     <resp key="tagging"/>
+    </respStmt>
+   </titleStmt>
+   <publicationStmt>
+    <!-- ak: added p -->
+    <p><date type="electronic" when="2021"/>
+    <date type="print"/></p>
+    <!-- ak commented this out
+    <availability>
+     <p xml:id="facs">Claudia Sutter</p>
+    </availability>
+    -->
+   </publicationStmt>
+   <seriesStmt>
+    <title>Titel der Diss <!--ändern!-->
+    </title>
+    <respStmt>
+     <persName>Claudia Sutter</persName>
+     <resp>Bearbeitung</resp>
+    </respStmt>
+   </seriesStmt>
+   <sourceDesc>
+    <msDesc>
+     <msIdentifier>
+      <idno xml:id="StadtASG.AltesStadtA.C..10a">StadtASG, Altes StadtA, Tr.~C.~10a</idno>
+     </msIdentifier>
+     <head/>
+     <!-- Kurztitel -->
+     <msContents>
+      <summary>
+       <p/><!-- Regest -->
+      </summary>
+      <msItem>
+       <textLang>lat</textLang>
+       <!-- ak commented this out
+       <filiation type="current"/>
+       -->
+      </msItem>
+     </msContents>
+     <physDesc>
+      <objectDesc>
+       <supportDesc>
+        <support>
+         <material>Pergament</material>
+        </support>
+        <extent>
+         <dimensions type="leaves">
+          <height unit="cm" quantity="16.0"/>
+          <width unit="cm" quantity="26.0"/>
+         </dimensions>
+        </extent>
+        <condition>2 Siegel fehlen: (1)~Konrad von Bussnang, Abt des Benediktinerklosters
+         St.~Gallen, (2)~Konvent des Benediktinerklosters St.~Gallen.</condition>
+       </supportDesc>
+      </objectDesc>
+     </physDesc>
+     <history>
+      <origin>
+       <origDate when="1228-06-30" period="P6WD"/>
+       <origPlace ref="loc000083"/>
+      </origin>
+     </history>
+    </msDesc>
+   </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+   <editorialDecl default="false">
+    <p>
+     <ref target="https://www.ssrq-sds-fds.ch/wiki/Transkriptionsrichtlinien"/>
+    </p>
+   </editorialDecl>
+  </encodingDesc>
+  <profileDesc>
+   <textClass default="false"> </textClass>
+   <!-- ak commented this out
+   <particDesc default="false"/>
+   <settingDesc default="false"/>
+   -->
+  </profileDesc>
+ </teiHeader>
+
+ <text>
+  <group>
+   <text>
+    <body>
+     <div>
+      <p n="1">
+       <seg n="1">
+        <lb n="1"/>In nomine patris et filii et spiritus sancti. Ego <persName ref="per004947"
+         >C.</persName> dei gratia <orgName ref="org000581">sancti Galli</orgName> abbas
+        universitati fidelium salutem in domino. Ne labantur cum tempore, <lb n="2"/>que geruntur in
+        tempore, litterarum debent ac testium memorie commendari. Universis igitur in Christo
+        fidelibus tam futuris quam presentibus <lb n="3"/>presens scriptum inspecturis notum fieri
+        volumus, quod cum <orgName ref="org002602">congregatio quedam conversarum mulierum</orgName>
+        sub status sui pendulo in diversis <lb n="4"/>locis tam intra quam extra civitatem sancti
+        Galli degentium de stabili mansione sua diu permansissent incerte, tandem <persName
+         ref="per012118">B. Cocus</persName>
+        <lb n="5"/>et <persName ref="per012119">Vͦ. Blarrarius</persName> divino excitati monitu
+        super eas misericordia moti ob remedium animarum suarum in honorem dei omnipotentis eis
+        quoddam curtile, <lb n="6"/>quod iuxta <placeName ref="loc010142">ripam, que Nigra
+         vocatur</placeName>, habebant, donare decreverunt et in manus nostras resignando eis ita
+        concedi rogabant, ut ille <lb n="7"/>locus in perpetuum deo dicatus non nisi bone
+        conversationis hominibus ad inhabitandum debeat patere. Nos vero, ut idem locus et in ipso
+        deo et sanctis <lb n="8"/>suis famulantes strictius ac specialius in abbatum protectione
+        permaneant in posterum, ad utrorumque scilicet dictorum virorum ac mu <lb n="9" break="no"
+        />lierum consensum et peticionem ipsum pro quodam censu videlicet pro <measure type="weight"
+         unit="Pfund" commodity="wax" quantity="1">una libra cere</measure>
+        <!-- ak: attribute @dur not available
+         <date dur="R/P1Y">
+        -->
+        <date>annuatim</date> abbati persolvenda concessimus, eandem habitatio <lb
+         n="10" break="no"/>nem sub protectione sanctorum confessorum <persName ref="per000455"
+         >Galli</persName> et <persName ref="per003385">Othmari</persName> et nostram suscipiendo.
+        Statuimus eciam, quod si aliqua eis bona in posterum conferun <lb n="11" break="no"/>tur,
+        sub eundem cedant censum et sub dicta protectione consistant. Ne autem in posterum contra id
+        factum aliquid ausu temera <lb n="12" break="no"/>rio valeat attemptari, presens
+        instrumentum fecimus conscribi et sigilli nostri nostrique capituli munimine confirmari.
+        Dat. <lb n="13"/>apud <origPlace ref="loc000083">sanctum Gallum</origPlace>, <origDate
+         when="1228-06-30" period="P6WD">anno gratie M<hi rend="sup">o</hi> CC<hi rend="sup">o</hi>
+          XX<hi rend="sup">o</hi> VIII<hi rend="sup">o</hi>, indict. prima, II<hi
+         rend="sup">a</hi> kl. iulii</origDate>. </seg>
+      </p>
+     </div>
+     <div>
+      <!-- ak deleted  place="verso" -->
+      <ab type="dorsal"  hand="hand15c?"><lb/><orgName ref="org002602">Dominarum sancti Galli</orgName></ab>
+     </div>
+     <div>
+      <!-- ak deleted  place="verso" -->
+      <ab type="dorsal" hand="hand14c?">
+       <!-- ak vnser is not a name so maybe rs would be better-->
+       <lb/>Von frihait <orgName ref="org002602">vnser</orgName> hofsteti.</ab>
+     </div>
+     <div>
+      <!-- ak deleted  place="verso" -->
+      <ab type="dorsal" hand="hand14c?"><lb/>Von de hof stat.</ab>
+     </div>
+     <div>
+      <!-- ak deleted type="archiving reference" place="verso" 
+           maybe <idno> and @type would be a solution
+      -->
+      <ab hand="hand15c?"><hi rend="sup">a</hi>/A</ab>
+     </div>
+    </body>
+   </text>
+  </group>
+ </text>
+</TEI>
